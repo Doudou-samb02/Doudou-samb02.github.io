@@ -3,148 +3,179 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Doudou Samb</title>
+    <title>Portfolio | Doudou Samb</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <!-- AOS (Framer Motion style for HTML) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Particles -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+    <!-- Motion One (animations style Framer Motion) -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- NAV -->
-<header class="nav">
-    <div class="nav-container">
-        <h1 class="logo">Doudou.dev</h1>
+<div id="particles-js"></div>
 
-        <nav>
-            <a href="#about">À propos</a>
-            <a href="#projects">Projets</a>
-            <a href="#skills">Compétences</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="CV.pdf" download class="cv-btn">Télécharger CV</a>
-    </div>
+<header>
+    <h1 class="logo">Doudou.</h1>
+    <button id="themeToggle"><i data-lucide="moon"></i></button>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
+    <motion.div class="hero-content"
+        animate="{
+            opacity: 1,
+            y: 0
+        }"
+        initial="{ opacity: 0, y: -40 }"
+        transition="{ duration: 1 }"
+    >
+        <img src="assets/photo.jpg" class="profile" alt="Photo de profil" />
 
-    <img src="profil.jpg" alt="Photo de profil" class="profile-img"
-    data-aos="zoom-in" data-aos-duration="1200">
+        <h2 class="hello">Salut, je suis</h2>
+        <h1 class="name">Mouhamadou Doudou Samb</h1>
 
-    <h2 data-aos="fade-up" data-aos-duration="1200">
-        Hello, je suis <span>Doudou Samb</span>
-    </h2>
+        <h3 class="typing"><span id="typing"></span></h3>
 
-    <p data-aos="fade-up" data-aos-delay="200">
-        Développeur passionné — création d’applications modernes et performantes.
-    </p>
-
-    <a href="#projects" class="btn-primary" 
-       data-aos="fade-up" data-aos-delay="400">
-        Découvrir mes projets
-    </a>
-
+        <div class="buttons">
+            <a href="cv.pdf" class="btn" download>📄 Télécharger CV</a>
+            <a href="#contact" class="btn secondary">📩 Me contacter</a>
+        </div>
+    </motion.div>
 </section>
 
-<!-- A PROPOS -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="section">
-    <h2 class="title" data-aos="fade-right">À propos</h2>
-
-    <p class="text" data-aos="fade-up" data-aos-delay="200">
-        Je suis un développeur passionné par la création d’applications modernes,
-        avec une approche minimaliste inspirée de Vercel, Linear et Dev.to.
-        Je cherche toujours à améliorer mes compétences et créer des projets utiles.
+    <h2 class="section-title">À propos</h2>
+    <p>
+        Je suis un développeur web passionné, spécialisé en création
+        d’applications modernes, performantes et intuitives.
+        J’adore transformer des idées en solutions concrètes.
     </p>
 </section>
 
-<!-- PROJETS -->
-<section id="projects" class="section">
-    <h2 class="title" data-aos="fade-right">Projets</h2>
-
-    <div class="grid">
-
-        <div class="card" data-aos="fade-up" data-aos-delay="0">
-            <h3>Gestion de Bibliothèque</h3>
-            <p>Application locale avec gestion des livres.</p>
-            <span class="tech">Racket / Fonctionnel</span>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="150">
-            <h3>Fo-Nei (Transport)</h3>
-            <p>Localisation de bus + tickets numériques.</p>
-            <span class="tech">FlutterFlow / Node</span>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="300">
-            <h3>Portfolio GitHub</h3>
-            <p>Site moderne et responsive.</p>
-            <span class="tech">HTML / CSS / JS</span>
-        </div>
-
-    </div>
-</section>
-
-<!-- COMPÉTENCES -->
-<section id="skills" class="section">
-    <h2 class="title" data-aos="fade-right">Compétences</h2>
-
-    <div class="skills">
-        <span data-aos="zoom-in">HTML</span>
-        <span data-aos="zoom-in" data-aos-delay="100">CSS</span>
-        <span data-aos="zoom-in" data-aos-delay="200">JavaScript</span>
-        <span data-aos="zoom-in" data-aos-delay="300">Racket</span>
-        <span data-aos="zoom-in" data-aos-delay="400">FlutterFlow</span>
-        <span data-aos="zoom-in" data-aos-delay="500">Node.js</span>
-        <span data-aos="zoom-in" data-aos-delay="600">Git / GitHub</span>
-    </div>
-</section>
-
-<!-- SERVICES -->
+<!-- ================= SERVICES ================= -->
 <section id="services" class="section">
-    <h2 class="title" data-aos="fade-right">Services</h2>
-
-    <div class="grid">
-        <div class="card" data-aos="flip-left">
-            <h3>Création de sites web</h3>
-            <p>Sites modernes, rapides, responsives.</p>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <i data-lucide="code"></i>
+            <h3>Développement Web</h3>
+            <p>Sites modernes, rapides et responsives.</p>
         </div>
 
-        <div class="card" data-aos="flip-left" data-aos-delay="150">
-            <h3>Développement mobile</h3>
-            <p>Applications simples et efficaces.</p>
+        <div class="service-card">
+            <i data-lucide="smartphone"></i>
+            <h3>Apps Mobiles</h3>
+            <p>Applications Android / iOS performantes.</p>
         </div>
 
-        <div class="card" data-aos="flip-left" data-aos-delay="300">
-            <h3>Gestion de projets</h3>
-            <p>Organisation, analyse, structuration.</p>
+        <div class="service-card">
+            <i data-lucide="cpu"></i>
+            <h3>IA / Automatisation</h3>
+            <p>Intégration d’IA et assistants intelligents.</p>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2 class="title" data-aos="fade-right">Contact</h2>
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="section">
+    <h2 class="section-title">Projets</h2>
+    <div class="projects-grid">
 
-    <p>Email : <a href="mailto:tonemail@gmail.com">tonemail@gmail.com</a></p>
-    <p>GitHub : <a href="https://github.com/doudou-samb02" target="_blank">doudou-samb02</a></p>
-    <p>LinkedIn : <a href="#">Ton LinkedIn</a></p>
+        <div class="project-card">
+            <h3>📚 Gestion de Bibliothèque</h3>
+            <p>Application web complète (CRUD, prêt, gestion stock).</p>
+            <a href="#" class="btn small">Voir</a>
+        </div>
+
+        <div class="project-card">
+            <h3>🚌 Fo-Nei App</h3>
+            <p>Localisation bus + tickets numériques.</p>
+            <a href="#" class="btn small">Voir</a>
+        </div>
+
+        <div class="project-card">
+            <h3>🤖 App IA Détection Billets CFA</h3>
+            <p>Projet IA entraîné pour validation billets.</p>
+            <a href="#" class="btn small">Voir</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="section">
+    <h2 class="section-title">Expériences</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Développeur Web</h3>
+            <span>2024 - Présent</span>
+            <p>Création de projets web modernes et dynamiques.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Développeur Mobile</h3>
+            <span>2023 - Présent</span>
+            <p>Apps React Native, FlutterFlow & Expo.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="section">
+    <h2 class="section-title">Compétences</h2>
+
+    <div class="skill">
+        <span>HTML / CSS / JS</span>
+        <div class="bar"><div style="--level: 90%"></div></div>
+    </div>
+
+    <div class="skill">
+        <span>Node.js / Express</span>
+        <div class="bar"><div style="--level: 75%"></div></div>
+    </div>
+
+    <div class="skill">
+        <span>React / React Native</span>
+        <div class="bar"><div style="--level: 85%"></div></div>
+    </div>
+
+    <div class="skill">
+        <span>IA / Python</span>
+        <div class="bar"><div style="--level: 70%"></div></div>
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+    <h2 class="section-title">Contact</h2>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Votre message..." required></textarea>
+        <button type="submit" class="btn">Envoyer</button>
+    </form>
 </section>
 
 <footer>
-    © 2025 — Portfolio de Doudou Samb
+    © 2025 — Doudou Samb. Tous droits réservés.
 </footer>
 
-<!-- AOS init -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
 <script>
-    AOS.init();
+    lucide.createIcons()
 </script>
 
 </body>
