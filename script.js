@@ -2,16 +2,15 @@
 const root = document.documentElement;
 const btn = document.getElementById('themeToggle');
 
+function setLucideIcon(name){
+  // replace button contents with icon and re-create icons
+  btn.innerHTML = `<i data-lucide="${name}"></i>`;
+  if(window.lucide) lucide.createIcons();
+}
+
 function applyTheme(t){
   root.setAttribute('data-theme', t);
-  // change icon if lucide present
-  try{
-    const icon = btn.querySelector('svg');
-    if(icon){
-      if(t==='light'){ icon.setAttribute('data-icon','sun'); }
-      else{ icon.setAttribute('data-icon','moon'); }
-    }
-  }catch(e){}
+  setLucideIcon(t === 'light' ? 'sun' : 'moon');
 }
 
 const saved = localStorage.getItem('theme');
@@ -34,6 +33,7 @@ const el = document.getElementById('typing');
 let wIndex = 0, chIndex = 0, deleting=false;
 
 function typeLoop(){
+  if(!el) return;
   const word = words[wIndex];
   if(!deleting){
     chIndex++;
@@ -59,7 +59,6 @@ function typeLoop(){
 if(el) typeLoop();
 
 /* ===== PARTICLES (particles.js) ===== */
-/* lightweight config for purple/cyan particles */
 if(window.particlesJS){
   particlesJS('particles-js', {
     particles: {
@@ -79,63 +78,58 @@ if(window.particlesJS){
   });
 }
 
-/* ===== SKILLS BARS: animate when visible ===== */
+/* ===== SKILLS BARS: animate when visible (using data-width) ===== */
 const skillBars = document.querySelectorAll('.bar > div');
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver((entries, obs)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         const el = entry.target;
-        const level = el.style.getPropertyValue('--level') || el.getAttribute('data-level') || el.style.width || el.getAttribute('style') || '';
-        // try to read CSS var --level on parent
-        const parent = el.parentElement;
-        let target = el.style.width;
-        // read computed style for --level on the parent (we set inline style in html as --level)
-        try{
-          const cs = getComputedStyle(parent);
-          const val = cs.getPropertyValue('--level') || el.getAttribute('data-level');
-          if(val){ el.style.width = val.trim(); }
-          else { el.style.width = el.getAttribute('data-width') || '70%'; }
-        }catch(e){
-          el.style.width = el.getAttribute('data-width') || '70%';
-        }
+        const width = el.getAttribute('data-width') || '70%';
+        el.style.width = width;
         obs.unobserve(el);
       }
     });
-  }, {threshold: 0.35});
-  skillBars.forEach(bar => {
-    // if inline style --level used on parent, transfer to inner div as width when visible
-    io.observe(bar);
-  });
+  }, {threshold: 0.3});
+  skillBars.forEach(bar => io.observe(bar));
 } else {
-  // fallback: animate immediately
   skillBars.forEach(b => b.style.width = b.getAttribute('data-width') || '70%');
 }
 
-/* ===== MOTION-LIKE ENTRY (Motion One) for cards & sections ===== */
-function animateOnView(selector, opts = {}) {
+/* ===== MOTION-STYLE ENTRY (Motion One) ===== */
+function animateOnView(selector){
   const els = document.querySelectorAll(selector);
   if(!els.length) return;
   const io = new IntersectionObserver((entries, obs)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
-        const e = entry.target;
-        motion.animate(e, { opacity: [0,1], translateY: [20,0], scale: [0.98,1] }, { duration: 0.8, easing: "ease-out" });
-        obs.unobserve(e);
+        motion.animate(entry.target, { opacity: [0,1], translateY: [18,0], scale: [0.995,1] }, { duration: 0.8, easing: "ease-out" });
+        obs.unobserve(entry.target);
       }
     });
   }, {threshold: 0.18});
   els.forEach(el => io.observe(el));
 }
+
 document.addEventListener('DOMContentLoaded', ()=>{
+  // animate hero inner on load
+  const heroInner = document.getElementById('heroInner');
+  if(heroInner){
+    motion.animate(heroInner, { opacity: [0,1], translateY: [20,0] }, { duration: 0.9, easing: "ease-out" });
+  }
+
+  // animate elements when in view
   animateOnView('.card');
   animateOnView('.service-card');
   animateOnView('.project-card');
   animateOnView('.timeline-item');
   animateOnView('.skill');
+
+  // ensure lucide icons rendered
+  if(window.lucide) lucide.createIcons();
 });
 
-/* ===== Contact form (simple demo) ===== */
+/* ===== CONTACT form (demo) ===== */
 const form = document.querySelector('.contact-form');
 if(form){
   form.addEventListener('submit',(e)=>{
