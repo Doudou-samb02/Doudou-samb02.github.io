@@ -1,4 +1,4 @@
-// Changer le style du header au scroll
+// Changer le header au scroll
 window.addEventListener('scroll', function() {
     const header = document.getElementById('header');
     if (window.scrollY > 50) {
@@ -8,3 +8,10 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Menu mobile toggle
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('header nav');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
