@@ -1,4 +1,4 @@
-/* RESET & BASE */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -7,21 +7,27 @@
 }
 
 body {
+    background-color: #f0f2f5;
+    color: #1f2937;
     line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #333;
 }
 
 /* HEADER FIXE */
 header {
     position: fixed;
     width: 100%;
-    background-color: #059669;
+    background: rgba(5,150,105,0.95);
     color: #fff;
     top: 0;
     left: 0;
     z-index: 1000;
     padding: 15px 0;
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+}
+
+header.scrolled {
+    background: rgba(5,150,105,1);
 }
 
 header .container {
@@ -38,10 +44,20 @@ header nav a {
     margin-left: 20px;
     text-decoration: none;
     font-weight: 700;
+    transition: 0.3s;
 }
 
 header nav a:hover {
     color: #EAB308;
+}
+
+/* HERO */
+.hero {
+    padding: 150px 20px 100px;
+    background: linear-gradient(135deg, #EAB308, #DC2626);
+    color: #fff;
+    text-align: center;
+    border-radius: 0 0 50% 50% / 20%;
 }
 
 /* SECTIONS */
@@ -64,31 +80,34 @@ header nav a:hover {
 
 .project-card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .project-card img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 15px;
 }
 
 .project-card a {
     display: inline-block;
     margin-top: 10px;
-    padding: 8px 15px;
+    padding: 10px 20px;
     background-color: #EAB308;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .project-card a:hover {
@@ -97,7 +116,7 @@ header nav a:hover {
 
 /* COMPETENCES */
 .skills-list {
-    list-style-type: square;
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -106,9 +125,10 @@ header nav a:hover {
 
 .skills-list li {
     background-color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
 }
 
 /* FOOTER */
