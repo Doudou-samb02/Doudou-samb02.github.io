@@ -1,81 +1,123 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Doudou Samb</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- HEADER FIXE -->
-<header id="header">
-    <div class="container">
-        <h1>Doudou Samb</h1>
+<!-- NAV -->
+<header class="nav">
+    <div class="nav-container">
+        <h1 class="logo">Doudou.dev</h1>
         <nav>
             <a href="#about">À propos</a>
             <a href="#projects">Projets</a>
             <a href="#skills">Compétences</a>
+            <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
-        <div class="menu-toggle">&#9776;</div>
+        <a href="CV.pdf" download class="cv-btn">Télécharger CV</a>
     </div>
 </header>
 
 <!-- HERO -->
-<section id="about" class="section hero">
-    <div class="container hero-content">
-        <h2>Salut, je suis <span>Doudou</span></h2>
-        <p>Étudiant en informatique passionné par le développement et la programmation fonctionnelle.</p>
-        <a href="#projects" class="btn-primary">Voir mes projets</a>
-    </div>
+<section class="hero">
+    <h2>Hello, je suis <span>Doudou Samb</span></h2>
+    <p>Développeur passionné — création d’applications modernes et performantes.</p>
+    <a href="#projects" class="btn-primary">Découvrir mes projets</a>
+</section>
+
+<!-- A PROPOS -->
+<section id="about" class="section">
+    <h2 class="title">À propos</h2>
+    <p class="text">
+        Je suis un étudiant en informatique passionné par le développement logiciel,
+        la conception d’interfaces modernes, et la résolution de problèmes.
+        J’aime créer des projets simples, efficaces et bien structurés.
+    </p>
 </section>
 
 <!-- PROJETS -->
 <section id="projects" class="section">
-    <div class="container">
-        <h2>Mes Projets</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="images/bibliotheque.png" alt="Projet Bibliothèque">
-                <h3>Gestion d’une bibliothèque</h3>
-                <p>Application locale pour ajouter, supprimer et rechercher des livres.</p>
-                <p><strong>Technologies :</strong> Racket, programmation fonctionnelle</p>
-                <a href="https://tonpseudo.github.io/bibliotheque-gestion/" target="_blank">Voir le projet</a>
-            </div>
-            <!-- Ajouter d'autres projets ici -->
+    <h2 class="title">Projets</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Gestion de Bibliothèque</h3>
+            <p>Application locale permettant de gérer des livres (ajout, recherche...).</p>
+            <span class="tech">Racket / Fonctionnel</span>
         </div>
+
+        <div class="card">
+            <h3>Fo-Nei (Transport)</h3>
+            <p>Application mobile pour la localisation de bus + tickets numériques.</p>
+            <span class="tech">FlutterFlow / Node</span>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio GitHub</h3>
+            <p>Site statique moderne hébergé sur GitHub Pages.</p>
+            <span class="tech">HTML / CSS / JS</span>
+        </div>
+
     </div>
 </section>
 
-<!-- COMPETENCES -->
+<!-- COMPÉTENCES -->
 <section id="skills" class="section">
-    <div class="container">
-        <h2>Compétences</h2>
-        <div class="skills-grid">
-            <div class="skill">Programmation fonctionnelle (Racket)</div>
-            <div class="skill">HTML / CSS / JS</div>
-            <div class="skill">Git / GitHub</div>
-            <div class="skill">Gestion de projets</div>
+    <h2 class="title">Compétences</h2>
+
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Racket</span>
+        <span>FlutterFlow</span>
+        <span>Node.js</span>
+        <span>Git / GitHub</span>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+    <h2 class="title">Services</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Création de sites web</h3>
+            <p>Sites modernes, rapides et responsives.</p>
         </div>
+
+        <div class="card">
+            <h3>Développement mobile</h3>
+            <p>Applications simples et efficaces.</p>
+        </div>
+
+        <div class="card">
+            <h3>Gestion de projets</h3>
+            <p>Organisation, analyse, structuration.</p>
+        </div>
+
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-    <div class="container">
-        <h2>Contact</h2>
-        <p>Email : <a href="mailto:tonemail@example.com">tonemail@example.com</a></p>
-        <p>LinkedIn : <a href="https://www.linkedin.com/in/tonprofil" target="_blank">tonprofil</a></p>
-        <p>GitHub : <a href="https://github.com/tonpseudo" target="_blank">tonpseudo</a></p>
-    </div>
+    <h2 class="title">Contact</h2>
+    <p>Email : <a href="mailto:tonemail@gmail.com">tonemail@gmail.com</a></p>
+    <p>GitHub : <a href="https://github.com/doudou-samb02" target="_blank">doudou-samb02</a></p>
+    <p>LinkedIn : <a href="#">Ton LinkedIn</a></p>
 </section>
 
 <footer>
-    <p>&copy; 2025 Doudou Samb</p>
+    © 2025 — Portfolio de Doudou Samb
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
