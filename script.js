@@ -1,62 +1,77 @@
-/* THEME: auto + toggle (persist) */
+/* ===== THEME: auto + toggle (persist) ===== */
 const root = document.documentElement;
-const btn = document.getElementById('themeToggle');
+const themeBtn = document.getElementById('themeToggle');
 
 function setLucideIcon(name){
-  btn.innerHTML = `<i data-lucide="${name}"></i>`;
+  if(!themeBtn) return;
+  themeBtn.innerHTML = `<i data-lucide="${name}"></i>`;
   if(window.lucide) lucide.createIcons();
 }
 
-function applyTheme(t){
-  root.setAttribute('data-theme', t);
-  setLucideIcon(t === 'light' ? 'sun' : 'moon');
+function applyTheme(theme){
+  root.setAttribute('data-theme', theme);
+  setLucideIcon(theme === 'light' ? 'sun' : 'moon');
 }
 
-const saved = localStorage.getItem('theme');
-if(saved){
-  applyTheme(saved);
+// Load saved theme or system preference
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme){
+  applyTheme(savedTheme);
 }else{
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
   applyTheme(prefersLight ? 'light' : 'dark');
 }
 
-btn.addEventListener('click', ()=>{
-  const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  applyTheme(cur);
-  localStorage.setItem('theme', cur);
+// Toggle theme
+if(themeBtn){
+  themeBtn.addEventListener('click', ()=>{
+    const curTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(curTheme);
+    localStorage.setItem('theme', curTheme);
+  });
+}
+
+/* ===== MOBILE MENU ===== */
+const burgerToggle = document.createElement('button');
+burgerToggle.id = 'burgerToggle';
+burgerToggle.innerHTML = '<i data-lucide="menu"></i>';
+burgerToggle.style.display = 'none';
+document.querySelector('.header-inner').prepend(burgerToggle);
+
+const mobileNav = document.createElement('nav');
+mobileNav.className = 'mobile-nav';
+document.querySelector('header').appendChild(mobileNav);
+document.querySelectorAll('.main-nav a').forEach(a=>{
+  const link = a.cloneNode(true);
+  mobileNav.appendChild(link);
 });
 
-/* TYPING EFFECT */
+burgerToggle.addEventListener('click', ()=> mobileNav.classList.toggle('show'));
+if(window.lucide) lucide.createIcons();
+
+/* ===== HERO TYPING EFFECT ===== */
 const words = ["Développeur Web","Créateur d'applications","Passionné d'IA"];
-const el = document.getElementById('typing');
-let wIndex = 0, chIndex = 0, deleting=false;
+const typingEl = document.getElementById('typing');
+let wIndex = 0, chIndex = 0, deleting = false;
+
 function typeLoop(){
-  if(!el) return;
+  if(!typingEl) return;
   const word = words[wIndex];
   if(!deleting){
     chIndex++;
-    el.textContent = word.slice(0,chIndex);
-    if(chIndex === word.length){
-      deleting = true;
-      setTimeout(typeLoop, 900);
-      return;
-    }
+    typingEl.textContent = word.slice(0,chIndex);
+    if(chIndex === word.length){ deleting = true; setTimeout(typeLoop, 900); return; }
     setTimeout(typeLoop, 80);
   } else {
     chIndex--;
-    el.textContent = word.slice(0,chIndex);
-    if(chIndex === 0){
-      deleting=false;
-      wIndex = (wIndex+1)%words.length;
-      setTimeout(typeLoop, 200);
-      return;
-    }
+    typingEl.textContent = word.slice(0,chIndex);
+    if(chIndex === 0){ deleting = false; wIndex = (wIndex+1)%words.length; setTimeout(typeLoop, 200); return; }
     setTimeout(typeLoop, 40);
   }
 }
-if(el) typeLoop();
+if(typingEl) typeLoop();
 
-/* PARTICLES */
+/* ===== PARTICLES.JS ===== */
 if(window.particlesJS){
   particlesJS('particles-js', {
     particles: {
@@ -68,29 +83,20 @@ if(window.particlesJS){
       line_linked: { enable: false },
       move: { enable: true, speed: 1.4, direction: "none", out_mode: "out" }
     },
-    interactivity: {
-      detect_on: "canvas",
-      events: { onhover: { enable: false }, onclick: { enable: false } }
-    },
+    interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false } } },
     retina_detect: true
   });
 }
 
-/* VANILLA TILT init for elements with data-tilt */
+/* ===== VANILLA TILT ===== */
 document.addEventListener('DOMContentLoaded', ()=>{
   const tiltEls = document.querySelectorAll('[data-tilt]');
   if(tiltEls.length && window.VanillaTilt){
-    VanillaTilt.init(tiltEls, {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.12,
-      scale: 1.02
-    });
+    VanillaTilt.init(tiltEls, { max: 10, speed: 400, glare: true, "max-glare": 0.12, scale: 1.02 });
   }
 });
 
-/* SKILL BARS animate on view */
+/* ===== SKILL BARS ANIMATION ===== */
 const skillBars = document.querySelectorAll('.bar > div');
 if('IntersectionObserver' in window){
   const io = new IntersectionObserver((entries, obs)=>{
@@ -108,7 +114,7 @@ if('IntersectionObserver' in window){
   skillBars.forEach(b => b.style.width = b.getAttribute('data-width') || '70%');
 }
 
-/* MOTION-STYLE STAGGERED ENTRY */
+/* ===== STAGGERED ANIMATIONS ===== */
 function animateStagger(selectors, stagger = 0.08){
   const els = document.querySelectorAll(selectors);
   if(!els.length) return;
@@ -116,11 +122,10 @@ function animateStagger(selectors, stagger = 0.08){
     entries.forEach(entry=>{
       if(entry.isIntersecting){
         const list = Array.from(entry.target.querySelectorAll(selectors));
-        // if observer target is an element itself, animate it
         if(list.length === 0) {
           motion.animate(entry.target, {opacity:[0,1], translateY:[18,0], scale:[0.995,1]}, {duration:0.8, easing:'ease-out'});
         } else {
-          list.forEach((el,i)=> {
+          list.forEach((el,i)=>{
             motion.animate(el, {opacity:[0,1], translateY:[18,0], scale:[0.995,1]}, {duration:0.7, delay:i*stagger, easing:'ease-out'});
           });
         }
@@ -128,40 +133,30 @@ function animateStagger(selectors, stagger = 0.08){
       }
     });
   }, {threshold:0.18});
-  // observe parents so we get grouped stagger animation
   document.querySelectorAll(selectors).forEach(el=>{
     let parent = el.parentElement;
     if(parent) io.observe(parent);
   });
 }
 document.addEventListener('DOMContentLoaded', ()=>{
-  // hero initial animation
   const heroInner = document.getElementById('heroInner');
-  if(heroInner){
-    motion.animate(heroInner, { opacity:[0,1], translateY:[20,0] }, { duration: 0.9, easing: "ease-out" });
-  }
-
-  // staggered animations for groups
+  if(heroInner) motion.animate(heroInner, { opacity:[0,1], translateY:[20,0] }, { duration: 0.9, easing: "ease-out" });
   animateStagger('.service-card');
   animateStagger('.project-card');
   animateStagger('.timeline-item');
   animateStagger('.skill');
-
-  // create lucide icons
   if(window.lucide) lucide.createIcons();
 });
 
-/* PARALLAX HERO: subtle parallax on mousemove */
+/* ===== HERO PARALLAX ===== */
 const hero = document.querySelector('.hero');
 const particlesLayer = document.getElementById('particles-js');
 if(hero){
-  hero.addEventListener('mousemove', (e)=>{
+  hero.addEventListener('mousemove', e=>{
     const rect = hero.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-    // move particles slightly for parallax
     if(particlesLayer) particlesLayer.style.transform = `translate(${(x-0.5)*6}px, ${(y-0.5)*6}px)`;
-    // subtle tilt of hero inner
     const heroInner = document.getElementById('heroInner');
     if(heroInner) heroInner.style.transform = `translate(${(x-0.5)*8}px, ${(y-0.5)*8}px)`;
   });
@@ -172,19 +167,18 @@ if(hero){
   });
 }
 
-/* CURSOR GLOW follow */
+/* ===== CUSTOM CURSOR GLOW ===== */
 const cursor = document.getElementById('cursor-glow');
-document.addEventListener('mousemove', (e)=>{
+document.addEventListener('mousemove', e=>{
   if(!cursor) return;
   cursor.style.opacity = '1';
   cursor.style.left = `${e.clientX}px`;
   cursor.style.top = `${e.clientY}px`;
-  // reduce opacity after time
   clearTimeout(cursor._fade);
-  cursor._fade = setTimeout(()=>{ cursor.style.opacity = '0' }, 1200);
+  cursor._fade = setTimeout(()=>{ cursor.style.opacity = '0'; }, 1200);
 });
 
-/* CONTACT FORM (demo) */
+/* ===== CONTACT FORM SIMULÉ ===== */
 const form = document.querySelector('.contact-form');
 if(form){
   form.addEventListener('submit',(e)=>{
@@ -198,3 +192,10 @@ if(form){
     },1200);
   });
 }
+
+/* ===== HEADER SCROLL EFFECT ===== */
+window.addEventListener('scroll', ()=>{
+  const header = document.querySelector('header');
+  if(window.scrollY > 40) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
