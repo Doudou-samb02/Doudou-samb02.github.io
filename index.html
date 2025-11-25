@@ -3,29 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio de Mouhamadou Doudou Samb — Développeur Web, Mobile et IA">
   <title>Portfolio | Doudou Samb</title>
 
-  <!-- Fonts + icons + libs -->
+  <!-- Fonts + icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Particles -->
+  <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-  <!-- Motion One (animations Framer-like) -->
   <script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script>
-
-  <!-- VanillaTilt for nice 3D hover tilt -->
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- animated particles background -->
+  <!-- PARTICLES & CURSOR GLOW -->
   <div id="particles-js" aria-hidden="true"></div>
-
-  <!-- custom cursor glow -->
   <div id="cursor-glow" aria-hidden="true"></div>
 
   <!-- HEADER -->
@@ -35,8 +30,9 @@
         <h1 class="logo">Doudou.</h1>
       </div>
 
-      <nav class="main-nav" role="navigation" aria-label="Main">
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#about">À propos</a>
+        <a href="#services">Services</a>
         <a href="#projects">Projets</a>
         <a href="#experience">Expériences</a>
         <a href="#skills">Compétences</a>
@@ -44,23 +40,31 @@
       </nav>
 
       <div class="header-actions">
-        <a class="cv-btn" href="cv.pdf" download>📄 CV</a>
+        <a class="cv-btn" href="cv.pdf" download aria-label="Télécharger CV">📄 CV</a>
         <button id="themeToggle" aria-label="Basculer thème"><i data-lucide="moon"></i></button>
+        <button id="burgerToggle" aria-label="Menu mobile"><i data-lucide="menu"></i></button>
       </div>
     </div>
   </header>
+
+  <!-- MOBILE MENU -->
+  <nav id="mobileMenu" class="mobile-nav" aria-label="Menu mobile">
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projets</a>
+    <a href="#experience">Expériences</a>
+    <a href="#skills">Compétences</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <!-- HERO -->
   <main>
     <section class="hero">
       <div class="hero-inner container" id="heroInner">
         <img src="assets/photo.jpg" alt="Photo de profil Doudou" class="profile" />
-
         <p class="hello">Salut, je suis</p>
         <h1 class="name">Mouhamadou Doudou Samb</h1>
-
         <h3 class="typing"><span id="typing" aria-live="polite"></span></h3>
-
         <div class="buttons">
           <a class="btn" href="cv.pdf" download>📄 Télécharger CV</a>
           <a class="btn secondary" href="#contact">📩 Me contacter</a>
@@ -72,10 +76,7 @@
     <section id="about" class="section about">
       <div class="container">
         <h2 class="section-title">À propos</h2>
-        <p>
-          Je suis un développeur web passionné, spécialisé en création d’applications modernes,
-          performantes et intuitives. J’aime transformer des idées en produits concrets.
-        </p>
+        <p>Développeur web passionné, spécialisé en création d’applications modernes, performantes et intuitives. J’aime transformer des idées en produits concrets.</p>
       </div>
     </section>
 
@@ -84,21 +85,21 @@
       <div class="container">
         <h2 class="section-title">Services</h2>
         <div class="grid">
-          <div class="card service-card" data-tilt>
+          <article class="card service-card" data-tilt role="article" aria-label="Développement Web">
             <i data-lucide="code"></i>
             <h3>Développement Web</h3>
             <p>Sites modernes, rapides et responsives.</p>
-          </div>
-          <div class="card service-card" data-tilt>
+          </article>
+          <article class="card service-card" data-tilt role="article" aria-label="Apps Mobiles">
             <i data-lucide="smartphone"></i>
             <h3>Apps Mobiles</h3>
             <p>Applications Android / iOS performantes.</p>
-          </div>
-          <div class="card service-card" data-tilt>
+          </article>
+          <article class="card service-card" data-tilt role="article" aria-label="IA et Automatisation">
             <i data-lucide="cpu"></i>
             <h3>IA / Automatisation</h3>
             <p>Intégration d’IA et assistants intelligents.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -108,26 +109,26 @@
       <div class="container">
         <h2 class="section-title">Projets</h2>
         <div class="grid projects-grid">
-          <div class="card project-card" data-tilt>
+          <article class="card project-card" data-tilt role="article" aria-label="Projet Gestion de Bibliothèque">
             <h3>📚 Gestion de Bibliothèque</h3>
             <p>Application web complète (CRUD, prêt, gestion stock).</p>
             <span class="tech">Racket / Fonctionnel</span>
             <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Bibliothèque">Voir</a></div>
-          </div>
+          </article>
 
-          <div class="card project-card" data-tilt>
+          <article class="card project-card" data-tilt role="article" aria-label="Projet Fo-Nei App">
             <h3>🚌 Fo-Nei App</h3>
             <p>Localisation bus + tickets numériques.</p>
             <span class="tech">FlutterFlow / Node</span>
             <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Fo-Nei">Voir</a></div>
-          </div>
+          </article>
 
-          <div class="card project-card" data-tilt>
+          <article class="card project-card" data-tilt role="article" aria-label="Projet IA Détection Billets CFA">
             <h3>🤖 App IA Détection Billets CFA</h3>
             <p>Projet IA entraîné pour validation billets.</p>
             <span class="tech">Python / ML</span>
             <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet IA">Voir</a></div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -144,7 +145,6 @@
             </div>
             <span>2024 - Présent</span>
           </div>
-
           <div class="timeline-item card">
             <div>
               <h3>Développeur Mobile</h3>
@@ -160,26 +160,10 @@
     <section id="skills" class="section">
       <div class="container">
         <h2 class="section-title">Compétences</h2>
-
-        <div class="skill">
-          <span>HTML / CSS / JS</span>
-          <div class="bar"><div data-width="90%"></div></div>
-        </div>
-
-        <div class="skill">
-          <span>Node.js / Express</span>
-          <div class="bar"><div data-width="75%"></div></div>
-        </div>
-
-        <div class="skill">
-          <span>React / React Native</span>
-          <div class="bar"><div data-width="85%"></div></div>
-        </div>
-
-        <div class="skill">
-          <span>IA / Python</span>
-          <div class="bar"><div data-width="70%"></div></div>
-        </div>
+        <div class="skill"><span>HTML / CSS / JS</span><div class="bar"><div data-width="90%"></div></div></div>
+        <div class="skill"><span>Node.js / Express</span><div class="bar"><div data-width="75%"></div></div></div>
+        <div class="skill"><span>React / React Native</span><div class="bar"><div data-width="85%"></div></div></div>
+        <div class="skill"><span>IA / Python</span><div class="bar"><div data-width="70%"></div></div></div>
       </div>
     </section>
 
@@ -197,8 +181,16 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container">© 2025 — Doudou Samb. Tous droits réservés.</div>
+    <div class="container">
+      © 2025 — Doudou Samb. Tous droits réservés.
+      <div class="socials">
+        <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
