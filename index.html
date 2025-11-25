@@ -19,18 +19,20 @@
             <a href="#skills">Compétences</a>
             <a href="#contact">Contact</a>
         </nav>
+        <div class="menu-toggle">&#9776;</div>
     </div>
 </header>
 
-<!-- SECTION À PROPOS -->
+<!-- HERO -->
 <section id="about" class="section hero">
-    <div class="container">
-        <h2>Salut, je suis Doudou</h2>
-        <p>Étudiant en informatique passionné par le développement et la programmation fonctionnelle. Je crée des projets pratiques et innovants.</p>
+    <div class="container hero-content">
+        <h2>Salut, je suis <span>Doudou</span></h2>
+        <p>Étudiant en informatique passionné par le développement et la programmation fonctionnelle.</p>
+        <a href="#projects" class="btn-primary">Voir mes projets</a>
     </div>
 </section>
 
-<!-- SECTION PROJETS -->
+<!-- PROJETS -->
 <section id="projects" class="section">
     <div class="container">
         <h2>Mes Projets</h2>
@@ -38,29 +40,29 @@
             <div class="project-card">
                 <img src="images/bibliotheque.png" alt="Projet Bibliothèque">
                 <h3>Gestion d’une bibliothèque</h3>
-                <p>Application locale pour ajouter, supprimer et rechercher des livres, avec gestion de la disponibilité.</p>
+                <p>Application locale pour ajouter, supprimer et rechercher des livres.</p>
                 <p><strong>Technologies :</strong> Racket, programmation fonctionnelle</p>
                 <a href="https://tonpseudo.github.io/bibliotheque-gestion/" target="_blank">Voir le projet</a>
             </div>
-            <!-- Tu peux ajouter d'autres cartes de projets ici -->
+            <!-- Ajouter d'autres projets ici -->
         </div>
     </div>
 </section>
 
-<!-- SECTION COMPETENCES -->
+<!-- COMPETENCES -->
 <section id="skills" class="section">
     <div class="container">
         <h2>Compétences</h2>
-        <ul class="skills-list">
-            <li>Programmation fonctionnelle (Racket)</li>
-            <li>HTML / CSS / JavaScript</li>
-            <li>Git / GitHub</li>
-            <li>Gestion de projets</li>
-        </ul>
+        <div class="skills-grid">
+            <div class="skill">Programmation fonctionnelle (Racket)</div>
+            <div class="skill">HTML / CSS / JS</div>
+            <div class="skill">Git / GitHub</div>
+            <div class="skill">Gestion de projets</div>
+        </div>
     </div>
 </section>
 
-<!-- SECTION CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="section">
     <div class="container">
         <h2>Contact</h2>
@@ -70,7 +72,6 @@
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 Doudou Samb</p>
 </footer>
