@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Doudou Samb</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AOS (Framer Motion style for HTML) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -13,6 +19,7 @@
 <header class="nav">
     <div class="nav-container">
         <h1 class="logo">Doudou.dev</h1>
+
         <nav>
             <a href="#about">À propos</a>
             <a href="#projects">Projets</a>
@@ -20,48 +27,64 @@
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
+
         <a href="CV.pdf" download class="cv-btn">Télécharger CV</a>
     </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <h2>Hello, je suis <span>Doudou Samb</span></h2>
-    <p>Développeur passionné — création d’applications modernes et performantes.</p>
-    <a href="#projects" class="btn-primary">Découvrir mes projets</a>
+
+    <img src="profil.jpg" alt="Photo de profil" class="profile-img"
+    data-aos="zoom-in" data-aos-duration="1200">
+
+    <h2 data-aos="fade-up" data-aos-duration="1200">
+        Hello, je suis <span>Doudou Samb</span>
+    </h2>
+
+    <p data-aos="fade-up" data-aos-delay="200">
+        Développeur passionné — création d’applications modernes et performantes.
+    </p>
+
+    <a href="#projects" class="btn-primary" 
+       data-aos="fade-up" data-aos-delay="400">
+        Découvrir mes projets
+    </a>
+
 </section>
 
 <!-- A PROPOS -->
 <section id="about" class="section">
-    <h2 class="title">À propos</h2>
-    <p class="text">
-        Je suis un étudiant en informatique passionné par le développement logiciel,
-        la conception d’interfaces modernes, et la résolution de problèmes.
-        J’aime créer des projets simples, efficaces et bien structurés.
+    <h2 class="title" data-aos="fade-right">À propos</h2>
+
+    <p class="text" data-aos="fade-up" data-aos-delay="200">
+        Je suis un développeur passionné par la création d’applications modernes,
+        avec une approche minimaliste inspirée de Vercel, Linear et Dev.to.
+        Je cherche toujours à améliorer mes compétences et créer des projets utiles.
     </p>
 </section>
 
 <!-- PROJETS -->
 <section id="projects" class="section">
-    <h2 class="title">Projets</h2>
+    <h2 class="title" data-aos="fade-right">Projets</h2>
 
     <div class="grid">
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
             <h3>Gestion de Bibliothèque</h3>
-            <p>Application locale permettant de gérer des livres (ajout, recherche...).</p>
+            <p>Application locale avec gestion des livres.</p>
             <span class="tech">Racket / Fonctionnel</span>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <h3>Fo-Nei (Transport)</h3>
-            <p>Application mobile pour la localisation de bus + tickets numériques.</p>
+            <p>Localisation de bus + tickets numériques.</p>
             <span class="tech">FlutterFlow / Node</span>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
             <h3>Portfolio GitHub</h3>
-            <p>Site statique moderne hébergé sur GitHub Pages.</p>
+            <p>Site moderne et responsive.</p>
             <span class="tech">HTML / CSS / JS</span>
         </div>
 
@@ -70,46 +93,45 @@
 
 <!-- COMPÉTENCES -->
 <section id="skills" class="section">
-    <h2 class="title">Compétences</h2>
+    <h2 class="title" data-aos="fade-right">Compétences</h2>
 
     <div class="skills">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Racket</span>
-        <span>FlutterFlow</span>
-        <span>Node.js</span>
-        <span>Git / GitHub</span>
+        <span data-aos="zoom-in">HTML</span>
+        <span data-aos="zoom-in" data-aos-delay="100">CSS</span>
+        <span data-aos="zoom-in" data-aos-delay="200">JavaScript</span>
+        <span data-aos="zoom-in" data-aos-delay="300">Racket</span>
+        <span data-aos="zoom-in" data-aos-delay="400">FlutterFlow</span>
+        <span data-aos="zoom-in" data-aos-delay="500">Node.js</span>
+        <span data-aos="zoom-in" data-aos-delay="600">Git / GitHub</span>
     </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-    <h2 class="title">Services</h2>
+    <h2 class="title" data-aos="fade-right">Services</h2>
 
     <div class="grid">
-
-        <div class="card">
+        <div class="card" data-aos="flip-left">
             <h3>Création de sites web</h3>
-            <p>Sites modernes, rapides et responsives.</p>
+            <p>Sites modernes, rapides, responsives.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="flip-left" data-aos-delay="150">
             <h3>Développement mobile</h3>
             <p>Applications simples et efficaces.</p>
         </div>
 
-        <div class="card">
+        <div class="card" data-aos="flip-left" data-aos-delay="300">
             <h3>Gestion de projets</h3>
             <p>Organisation, analyse, structuration.</p>
         </div>
-
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-    <h2 class="title">Contact</h2>
+    <h2 class="title" data-aos="fade-right">Contact</h2>
+
     <p>Email : <a href="mailto:tonemail@gmail.com">tonemail@gmail.com</a></p>
     <p>GitHub : <a href="https://github.com/doudou-samb02" target="_blank">doudou-samb02</a></p>
     <p>LinkedIn : <a href="#">Ton LinkedIn</a></p>
@@ -118,6 +140,12 @@
 <footer>
     © 2025 — Portfolio de Doudou Samb
 </footer>
+
+<!-- AOS init -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
 </body>
 </html>
