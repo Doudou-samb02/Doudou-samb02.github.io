@@ -1,182 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Doudou Samb</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio | Doudou Samb</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonts + icons + libs -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Particles -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-    <!-- Motion One (animations style Framer Motion) -->
-    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script>
-
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div id="particles-js"></div>
+  <!-- particles background -->
+  <div id="particles-js" aria-hidden="true"></div>
 
-<header>
-    <h1 class="logo">Doudou.</h1>
-    <button id="themeToggle"><i data-lucide="moon"></i></button>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner container">
+      <div class="brand">
+        <h1 class="logo">Doudou.</h1>
+      </div>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-    <motion.div class="hero-content"
-        animate="{
-            opacity: 1,
-            y: 0
-        }"
-        initial="{ opacity: 0, y: -40 }"
-        transition="{ duration: 1 }"
-    >
-        <img src="assets/photo.jpg" class="profile" alt="Photo de profil" />
+      <nav class="main-nav" role="navigation" aria-label="Main">
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#experience">Expériences</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        <h2 class="hello">Salut, je suis</h2>
+      <div class="header-actions">
+        <a class="cv-btn" href="cv.pdf" download>📄 CV</a>
+        <button id="themeToggle" aria-label="Basculer thème"><i data-lucide="moon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="hero-inner container" id="heroInner">
+        <img src="assets/photo.jpg" alt="Photo de profil Doudou" class="profile" />
+
+        <p class="hello">Salut, je suis</p>
         <h1 class="name">Mouhamadou Doudou Samb</h1>
 
-        <h3 class="typing"><span id="typing"></span></h3>
+        <h3 class="typing"><span id="typing" aria-live="polite"></span></h3>
 
         <div class="buttons">
-            <a href="cv.pdf" class="btn" download>📄 Télécharger CV</a>
-            <a href="#contact" class="btn secondary">📩 Me contacter</a>
+          <a class="btn" href="cv.pdf" download>📄 Télécharger CV</a>
+          <a class="btn secondary" href="#contact">📩 Me contacter</a>
         </div>
-    </motion.div>
-</section>
+      </div>
+    </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-    <h2 class="section-title">À propos</h2>
-    <p>
-        Je suis un développeur web passionné, spécialisé en création
-        d’applications modernes, performantes et intuitives.
-        J’adore transformer des idées en solutions concrètes.
-    </p>
-</section>
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title">À propos</h2>
+        <p>
+          Je suis un développeur web passionné, spécialisé en création d’applications modernes,
+          performantes et intuitives. J’aime transformer des idées en produits concrets.
+        </p>
+      </div>
+    </section>
 
-<!-- ================= SERVICES ================= -->
-<section id="services" class="section">
-    <h2 class="section-title">Services</h2>
-    <div class="services-grid">
-        <div class="service-card">
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <div class="grid">
+          <div class="card service-card">
             <i data-lucide="code"></i>
             <h3>Développement Web</h3>
             <p>Sites modernes, rapides et responsives.</p>
-        </div>
-
-        <div class="service-card">
+          </div>
+          <div class="card service-card">
             <i data-lucide="smartphone"></i>
             <h3>Apps Mobiles</h3>
             <p>Applications Android / iOS performantes.</p>
-        </div>
-
-        <div class="service-card">
+          </div>
+          <div class="card service-card">
             <i data-lucide="cpu"></i>
             <h3>IA / Automatisation</h3>
             <p>Intégration d’IA et assistants intelligents.</p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="section">
-    <h2 class="section-title">Projets</h2>
-    <div class="projects-grid">
-
-        <div class="project-card">
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projets</h2>
+        <div class="grid projects-grid">
+          <div class="card project-card">
             <h3>📚 Gestion de Bibliothèque</h3>
             <p>Application web complète (CRUD, prêt, gestion stock).</p>
-            <a href="#" class="btn small">Voir</a>
-        </div>
+            <span class="tech">Racket / Fonctionnel</span>
+            <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Bibliothèque">Voir</a></div>
+          </div>
 
-        <div class="project-card">
+          <div class="card project-card">
             <h3>🚌 Fo-Nei App</h3>
             <p>Localisation bus + tickets numériques.</p>
-            <a href="#" class="btn small">Voir</a>
-        </div>
+            <span class="tech">FlutterFlow / Node</span>
+            <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Fo-Nei">Voir</a></div>
+          </div>
 
-        <div class="project-card">
+          <div class="card project-card">
             <h3>🤖 App IA Détection Billets CFA</h3>
             <p>Projet IA entraîné pour validation billets.</p>
-            <a href="#" class="btn small">Voir</a>
+            <span class="tech">Python / ML</span>
+            <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet IA">Voir</a></div>
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-<!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="section">
-    <h2 class="section-title">Expériences</h2>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <h3>Développeur Web</h3>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Expériences</h2>
+        <div class="timeline">
+          <div class="timeline-item card">
+            <div>
+              <h3>Développeur Web</h3>
+              <p class="muted">Création de projets web modernes et dynamiques.</p>
+            </div>
             <span>2024 - Présent</span>
-            <p>Création de projets web modernes et dynamiques.</p>
-        </div>
+          </div>
 
-        <div class="timeline-item">
-            <h3>Développeur Mobile</h3>
+          <div class="timeline-item card">
+            <div>
+              <h3>Développeur Mobile</h3>
+              <p class="muted">Apps React Native, FlutterFlow & Expo.</p>
+            </div>
             <span>2023 - Présent</span>
-            <p>Apps React Native, FlutterFlow & Expo.</p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ================= SKILLS ================= -->
-<section id="skills" class="section">
-    <h2 class="section-title">Compétences</h2>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Compétences</h2>
 
-    <div class="skill">
-        <span>HTML / CSS / JS</span>
-        <div class="bar"><div style="--level: 90%"></div></div>
-    </div>
+        <div class="skill">
+          <span>HTML / CSS / JS</span>
+          <div class="bar"><div data-width="90%"></div></div>
+        </div>
 
-    <div class="skill">
-        <span>Node.js / Express</span>
-        <div class="bar"><div style="--level: 75%"></div></div>
-    </div>
+        <div class="skill">
+          <span>Node.js / Express</span>
+          <div class="bar"><div data-width="75%"></div></div>
+        </div>
 
-    <div class="skill">
-        <span>React / React Native</span>
-        <div class="bar"><div style="--level: 85%"></div></div>
-    </div>
+        <div class="skill">
+          <span>React / React Native</span>
+          <div class="bar"><div data-width="85%"></div></div>
+        </div>
 
-    <div class="skill">
-        <span>IA / Python</span>
-        <div class="bar"><div style="--level: 70%"></div></div>
-    </div>
-</section>
+        <div class="skill">
+          <span>IA / Python</span>
+          <div class="bar"><div data-width="70%"></div></div>
+        </div>
+      </div>
+    </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section">
-    <h2 class="section-title">Contact</h2>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <form class="contact-form" aria-label="Formulaire de contact">
+          <input type="text" name="name" placeholder="Nom" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Votre message..." required></textarea>
+          <button type="submit" class="btn">Envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Nom" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Votre message..." required></textarea>
-        <button type="submit" class="btn">Envoyer</button>
-    </form>
-</section>
+  <footer>
+    <div class="container">© 2025 — Doudou Samb. Tous droits réservés.</div>
+  </footer>
 
-<footer>
-    © 2025 — Doudou Samb. Tous droits réservés.
-</footer>
-
-<script src="script.js"></script>
-<script>
-    lucide.createIcons()
-</script>
-
+  <script src="script.js"></script>
+  <script>lucide.createIcons()</script>
 </body>
 </html>
