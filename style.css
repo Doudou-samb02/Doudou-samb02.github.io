@@ -10,20 +10,21 @@ body {
     background-color: #f0f2f5;
     color: #1f2937;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 /* HEADER FIXE */
 header {
     position: fixed;
     width: 100%;
-    background: rgba(5,150,105,0.95);
-    color: #fff;
     top: 0;
     left: 0;
-    z-index: 1000;
+    background: rgba(5,150,105,0.85);
+    color: #fff;
     padding: 15px 0;
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s;
 }
 
 header.scrolled {
@@ -39,9 +40,13 @@ header .container {
     align-items: center;
 }
 
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
 header nav a {
     color: #fff;
-    margin-left: 20px;
     text-decoration: none;
     font-weight: 700;
     transition: 0.3s;
@@ -53,11 +58,33 @@ header nav a:hover {
 
 /* HERO */
 .hero {
-    padding: 150px 20px 100px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, #EAB308, #DC2626);
     color: #fff;
     text-align: center;
-    border-radius: 0 0 50% 50% / 20%;
+}
+
+.hero h2 span {
+    color: #059669;
+}
+
+.hero .btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #059669;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background-color: #1f7f5b;
 }
 
 /* SECTIONS */
@@ -67,46 +94,46 @@ header nav a:hover {
 
 .section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: #DC2626;
 }
 
 /* PROJETS */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .project-card {
     background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     padding: 20px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
 }
 
 .project-card img {
     max-width: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
     margin-bottom: 15px;
 }
 
 .project-card a {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
+    margin-top: 15px;
+    padding: 10px 25px;
     background-color: #EAB308;
     color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
+    border-radius: 30px;
     font-weight: bold;
+    text-decoration: none;
     transition: 0.3s;
 }
 
@@ -115,20 +142,24 @@ header nav a:hover {
 }
 
 /* COMPETENCES */
-.skills-list {
-    list-style: none;
+.skills-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.skills-list li {
-    background-color: #fff;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.skill {
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
 }
 
 /* FOOTER */
@@ -139,7 +170,14 @@ footer {
     color: #fff;
 }
 
-/* SCROLL SMOOTH */
-html {
-    scroll-behavior: smooth;
+/* MEDIA QUERIES */
+@media(max-width:768px){
+    header nav {
+        display: none;
+    }
+    header .menu-toggle {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+    }
 }
