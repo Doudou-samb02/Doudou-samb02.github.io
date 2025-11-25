@@ -8,15 +8,25 @@
   <!-- Fonts + icons + libs -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+  <!-- Motion One (animations Framer-like) -->
   <script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script>
+
+  <!-- VanillaTilt for nice 3D hover tilt -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- particles background -->
+  <!-- animated particles background -->
   <div id="particles-js" aria-hidden="true"></div>
+
+  <!-- custom cursor glow -->
+  <div id="cursor-glow" aria-hidden="true"></div>
 
   <!-- HEADER -->
   <header>
@@ -74,17 +84,17 @@
       <div class="container">
         <h2 class="section-title">Services</h2>
         <div class="grid">
-          <div class="card service-card">
+          <div class="card service-card" data-tilt>
             <i data-lucide="code"></i>
             <h3>Développement Web</h3>
             <p>Sites modernes, rapides et responsives.</p>
           </div>
-          <div class="card service-card">
+          <div class="card service-card" data-tilt>
             <i data-lucide="smartphone"></i>
             <h3>Apps Mobiles</h3>
             <p>Applications Android / iOS performantes.</p>
           </div>
-          <div class="card service-card">
+          <div class="card service-card" data-tilt>
             <i data-lucide="cpu"></i>
             <h3>IA / Automatisation</h3>
             <p>Intégration d’IA et assistants intelligents.</p>
@@ -98,21 +108,21 @@
       <div class="container">
         <h2 class="section-title">Projets</h2>
         <div class="grid projects-grid">
-          <div class="card project-card">
+          <div class="card project-card" data-tilt>
             <h3>📚 Gestion de Bibliothèque</h3>
             <p>Application web complète (CRUD, prêt, gestion stock).</p>
             <span class="tech">Racket / Fonctionnel</span>
             <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Bibliothèque">Voir</a></div>
           </div>
 
-          <div class="card project-card">
+          <div class="card project-card" data-tilt>
             <h3>🚌 Fo-Nei App</h3>
             <p>Localisation bus + tickets numériques.</p>
             <span class="tech">FlutterFlow / Node</span>
             <div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Fo-Nei">Voir</a></div>
           </div>
 
-          <div class="card project-card">
+          <div class="card project-card" data-tilt>
             <h3>🤖 App IA Détection Billets CFA</h3>
             <p>Projet IA entraîné pour validation billets.</p>
             <span class="tech">Python / ML</span>
