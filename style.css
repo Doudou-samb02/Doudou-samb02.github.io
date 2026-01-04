@@ -148,3 +148,95 @@ footer .socials a:hover{color:var(--accent-2);transform:translateY(-2px);}
   .container{padding:0 16px;}
   .hero-inner{gap:10px;}
 }
+
+/* =========================
+   PHOTO DE PROFIL
+========================= */
+.profile{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #EAB308; /* couleur primaire */
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+  margin-bottom:20px;
+}
+
+/* =========================
+   CARTE PROJET
+========================= */
+.project-card{
+  background:rgba(255,255,255,0.04);
+  border-radius:16px;
+  padding:18px;
+  text-align:left;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.project-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   IMAGE DU PROJET
+========================= */
+.project-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   TITRE PROJET
+========================= */
+.project-card h3{
+  font-size:1.2rem;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+/* =========================
+   DESCRIPTION PROJET
+========================= */
+.project-card p{
+  font-size:.95rem;
+  color:#cfcfcf;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+/* =========================
+   TECHNOLOGIES
+========================= */
+.tech{
+  display:inline-block;
+  font-size:.8rem;
+  color:#EAB308;
+  background:rgba(234,179,8,0.1);
+  padding:4px 10px;
+  border-radius:999px;
+  margin-top:6px;
+}
+
+/* =========================
+   BOUTON PROJET
+========================= */
+.btn.small{
+  padding:6px 14px;
+  font-size:.85rem;
+  border-radius:8px;
+  background:#DC2626; /* secondaire */
+  color:#fff;
+  text-decoration:none;
+  transition:background .3s ease, transform .2s ease;
+}
+
+.btn.small:hover{
+  background:#b91c1c;
+  transform:scale(1.05);
+}
+
