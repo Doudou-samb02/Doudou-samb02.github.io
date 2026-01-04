@@ -205,22 +205,14 @@ window.addEventListener('scroll', ()=>{
 
 
 
+function openProject(project){
+  const modal = document.getElementById("projectModal");
+  modal.classList.add("show");
+}
 
-const openBtn = document.querySelector(".open-project");
-const modal = document.getElementById("bibliothequeModal");
-const closeBtn = modal.querySelector(".close-modal");
+function closeProject(){
+  const modal = document.getElementById("projectModal");
+  modal.classList.remove("show");
+}
 
-openBtn.addEventListener("click", () => {
-  modal.classList.add("active");
-});
-
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("active");
-});
-
-modal.addEventListener("click", e => {
-  if(e.target === modal){
-    modal.classList.remove("active");
-  }
-});
 
