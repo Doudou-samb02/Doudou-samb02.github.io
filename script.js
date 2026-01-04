@@ -199,3 +199,28 @@ window.addEventListener('scroll', ()=>{
   if(window.scrollY > 40) header.classList.add('scrolled');
   else header.classList.remove('scrolled');
 });
+
+
+
+
+
+
+
+const openBtn = document.querySelector(".open-project");
+const modal = document.getElementById("bibliothequeModal");
+const closeBtn = modal.querySelector(".close-modal");
+
+openBtn.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+modal.addEventListener("click", e => {
+  if(e.target === modal){
+    modal.classList.remove("active");
+  }
+});
+
