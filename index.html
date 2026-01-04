@@ -124,7 +124,7 @@
   <span class="tech">Racket / Programmation fonctionnelle</span>
 
   <div style="margin-top:12px">
-    <a class="btn small open-project">Voir le projet</a>
+ <a class="btn small" href="#" onclick="openProject('biblio')">Voir le projet</a>
   </div>
 </article>
 
@@ -209,32 +209,30 @@
   <script src="script.js"></script>
   <script>lucide.createIcons()</script>
 
-  <!-- MODAL PROJET BIBLIOTHÈQUE -->
-<div class="modal" id="bibliothequeModal">
+<!-- MODAL PROJET BIBLIOTHÈQUE -->
+<div id="projectModal" class="modal" aria-hidden="true">
   <div class="modal-content">
-    <span class="close-modal">&times;</span>
+    <button class="modal-close" onclick="closeProject()">✖</button>
 
     <h2>📚 Gestion d’une Bibliothèque</h2>
-
-    <img src="images/projects/bibliotheque.jpg"
-         class="modal-img"
-         alt="Projet Bibliothèque">
-
-    <p>
-      Application web développée en programmation fonctionnelle
-      permettant la gestion complète d’une bibliothèque.
+    <p class="muted">
+      Application web permettant la gestion complète d’une bibliothèque.
     </p>
 
-    <ul class="modal-list">
-      <li>✔️ Ajout / modification / suppression de livres</li>
-      <li>✔️ Gestion des emprunts et retours</li>
-      <li>✔️ Gestion des utilisateurs</li>
-      <li>✔️ Recherche et filtrage</li>
+    <h4>✨ Fonctionnalités</h4>
+    <ul>
+      <li>Ajout / modification / suppression de livres</li>
+      <li>Gestion des emprunts et retours</li>
+      <li>Gestion des utilisateurs</li>
+      <li>Recherche rapide</li>
     </ul>
 
-    <div class="modal-actions">
-      <a href="#" class="btn">Code source</a>
-      <a href="#" class="btn outline">Démo</a>
+    <h4>🛠 Technologies</h4>
+    <p class="tech">Spring Boot · Java · MySQL · HTML · CSS</p>
+
+    <div class="buttons" style="margin-top:16px">
+      <a class="btn small" href="#" target="_blank">Voir le code</a>
+      <a class="btn small secondary" href="#" target="_blank">Voir la démo</a>
     </div>
   </div>
 </div>
