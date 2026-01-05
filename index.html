@@ -240,9 +240,9 @@
       <button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button>
     </div>
 
-    <!-- Conteneur vidéo responsive caché au départ -->
-    <div id="projectVideoContainer"
-         style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
+    <!-- Conteneur vidéo (iframe YouTube) caché par défaut -->
+    <div id="projectVideoContainer" style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
+      <!-- L'iframe sera injecté via JS -->
     </div>
   </div>
 </div>
@@ -253,7 +253,7 @@ const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE";
 function showVideo() {
   const container = document.getElementById('projectVideoContainer');
 
-  // Injecte l'iframe responsive avec autoplay
+  // Injecte l'iframe YouTube à chaque ouverture
   container.innerHTML = `
     <iframe src="${videoUrl}?autoplay=1"
       frameborder="0"
@@ -273,7 +273,7 @@ function closeProject() {
   modal.style.display = 'none';
   container.style.display = 'none';
 
-  // Supprime l'iframe pour pouvoir relancer la vidéo
+  // Supprime l'iframe pour réinitialiser la vidéo
   container.innerHTML = '';
 }
 </script>
