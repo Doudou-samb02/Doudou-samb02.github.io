@@ -214,34 +214,59 @@
   <div class="modal-content">
     <button class="modal-close" onclick="closeProject()">✖</button>
 
-   <h2>📚 Gestion d’une Bibliothèque</h2>
+    <h2>📚 Gestion d’une Bibliothèque</h2>
 
-<p class="muted">
-  Application web complète permettant la gestion efficace d’une bibliothèque,
-  avec un système sécurisé pour les administrateurs et les lecteurs.
-</p>
+    <p class="muted">
+      Application web complète permettant la gestion efficace d’une bibliothèque,
+      avec un système sécurisé pour les administrateurs et les lecteurs.
+    </p>
 
-<h4>✨ Fonctionnalités principales</h4>
-<ul>
-  <li>Gestion des utilisateurs (inscription, connexion, rôles)</li>
-  <li>Ajout, modification et suppression de livres</li>
-  <li>Gestion des auteurs et association aux livres</li>
-  <li>Emprunt et retour des livres avec suivi de disponibilité</li>
-  <li>Recherche et filtrage par titre, auteur et genre</li>
-</ul>
+    <h4>✨ Fonctionnalités principales</h4>
+    <ul>
+      <li>Gestion des utilisateurs (inscription, connexion, rôles)</li>
+      <li>Ajout, modification et suppression de livres</li>
+      <li>Gestion des auteurs et association aux livres</li>
+      <li>Emprunt et retour des livres avec suivi de disponibilité</li>
+      <li>Recherche et filtrage par titre, auteur et genre</li>
+    </ul>
 
-<h4>🛠 Technologies utilisées</h4>
-<p class="tech">
-  Spring Boot · Java · MySQL · HTML · CSS · JavaScript
-</p>
-
+    <h4>🛠 Technologies utilisées</h4>
+    <p class="tech">
+      Spring Boot · Java · MySQL · HTML · CSS · JavaScript
+    </p>
 
     <div class="buttons" style="margin-top:16px">
       <a class="btn small" href="https://github.com/Doudou-samb02/Gestion-d-une-Biblioth-que-.git" target="_blank">Voir le code</a>
-      <a class="btn small secondary" href="#" target="_blank">Voir la démo</a>
+      <button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button>
+    </div>
+
+    <!-- Conteneur vidéo YouTube, caché par défaut -->
+    <div id="projectVideoContainer" style="display:none; margin-top:16px">
+      <iframe id="projectVideo" width="100%" height="400"
+              src="https://www.youtube.com/embed/FLlu4MnW1yE"
+              title="Vidéo Projet Bibliothèque"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
     </div>
   </div>
 </div>
+
+<script>
+function showVideo() {
+  const container = document.getElementById('projectVideoContainer');
+  container.style.display = 'block';  // Affiche la vidéo
+}
+
+function closeProject() {
+  const modal = document.getElementById('projectModal');
+  const container = document.getElementById('projectVideoContainer');
+  
+  modal.style.display = 'none';       // Ferme le modal
+  container.style.display = 'none';   // Cache la vidéo
+}
+</script>
 
 
 </body>
