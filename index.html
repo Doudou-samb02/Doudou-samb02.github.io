@@ -240,33 +240,44 @@
       <button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button>
     </div>
 
-    <!-- Conteneur vidéo YouTube, caché par défaut -->
-    <div id="projectVideoContainer" style="display:none; margin-top:16px">
-      <iframe id="projectVideo" width="100%" height="400"
-              src="https://www.youtube.com/embed/FLlu4MnW1yE"
-              title="Vidéo Projet Bibliothèque"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-      </iframe>
+    <!-- Conteneur vidéo responsive caché au départ -->
+    <div id="projectVideoContainer"
+         style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
     </div>
   </div>
 </div>
 
 <script>
+const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE";
+
 function showVideo() {
   const container = document.getElementById('projectVideoContainer');
-  container.style.display = 'block';  // Affiche la vidéo
+
+  // Injecte l'iframe responsive avec autoplay
+  container.innerHTML = `
+    <iframe src="${videoUrl}?autoplay=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+    </iframe>
+  `;
+
+  container.style.display = 'block';
 }
 
 function closeProject() {
   const modal = document.getElementById('projectModal');
   const container = document.getElementById('projectVideoContainer');
-  
-  modal.style.display = 'none';       // Ferme le modal
-  container.style.display = 'none';   // Cache la vidéo
+
+  modal.style.display = 'none';
+  container.style.display = 'none';
+
+  // Supprime l'iframe pour pouvoir relancer la vidéo
+  container.innerHTML = '';
 }
 </script>
+
 
 
 </body>
