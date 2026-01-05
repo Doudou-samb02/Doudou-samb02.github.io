@@ -235,31 +235,25 @@
       Spring Boot · Java · MySQL · HTML · CSS · JavaScript
     </p>
 
-     <div class="buttons" style="margin-top:16px">
-      <a class="btn small" href="#" target="_blank">Voir le code</a>
+    <div class="buttons" style="margin-top:16px">
+      <a class="btn small" href="https://github.com/Doudou-samb02/Gestion-d-une-Biblioth-que-.git" target="_blank">Voir le code</a>
       <button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button>
     </div>
 
-    <div id="projectVideoContainer" style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)"></div>
+    <!-- Conteneur vidéo (iframe YouTube) caché par défaut -->
+    <div id="projectVideoContainer" style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
+      <!-- L'iframe sera injecté via JS -->
+    </div>
   </div>
 </div>
 
 <script>
 const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE";
 
-// Ouvrir le modal
-function openProject() {
-  const modal = document.getElementById('projectModal');
-  const container = document.getElementById('projectVideoContainer');
-
-  modal.style.display = 'block';
-  container.style.display = 'none';   // Toujours cacher la vidéo au départ
-  container.innerHTML = '';            // Supprimer iframe si existant
-}
-
-// Afficher la vidéo
 function showVideo() {
   const container = document.getElementById('projectVideoContainer');
+
+  // Injecte l'iframe YouTube à chaque ouverture
   container.innerHTML = `
     <iframe src="${videoUrl}?autoplay=1"
       frameborder="0"
@@ -268,17 +262,19 @@ function showVideo() {
       style="position:absolute; top:0; left:0; width:100%; height:100%;">
     </iframe>
   `;
+
   container.style.display = 'block';
 }
 
-// Fermer le modal
 function closeProject() {
   const modal = document.getElementById('projectModal');
   const container = document.getElementById('projectVideoContainer');
 
   modal.style.display = 'none';
   container.style.display = 'none';
-  container.innerHTML = ''; // Supprime iframe pour réinitialiser la vidéo
+
+  // Supprime l'iframe pour réinitialiser la vidéo
+  container.innerHTML = '';
 }
 </script>
 
