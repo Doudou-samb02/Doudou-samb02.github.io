@@ -196,42 +196,45 @@
       </div>
     </div>
   </footer>
+/* ===== MODAL PROJET CORRIGÉ ===== */
+const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE";
 
-  <!-- MODAL PROJET -->
-  <div id="projectModal" class="modal" aria-hidden="true" style="display:none;">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeProject()">✖</button>
+function openProject() {
+  const modal = document.getElementById('projectModal');
+  const container = document.getElementById('projectVideoContainer');
 
-      <h2>📚 Gestion d’une Bibliothèque</h2>
-      <p class="muted">
-        Application web complète permettant la gestion efficace d’une bibliothèque,
-        avec un système sécurisé pour les administrateurs et les lecteurs.
-      </p>
+  // Réinitialise la vidéo
+  container.innerHTML = '';
+  container.style.display = 'none';
 
-      <h4>✨ Fonctionnalités principales</h4>
-      <ul>
-        <li>Gestion des utilisateurs (inscription, connexion, rôles)</li>
-        <li>Ajout, modification et suppression de livres</li>
-        <li>Gestion des auteurs et association aux livres</li>
-        <li>Emprunt et retour des livres avec suivi de disponibilité</li>
-        <li>Recherche et filtrage par titre, auteur et genre</li>
-      </ul>
+  // Ouvre le modal
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden', 'false');
+}
 
-      <h4>🛠 Technologies utilisées</h4>
-      <p class="tech">
-        Spring Boot · Java · MySQL · HTML · CSS · JavaScript
-      </p>
+function showVideo() {
+  const container = document.getElementById('projectVideoContainer');
+  container.innerHTML = `
+    <iframe src="${videoUrl}?autoplay=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+    </iframe>
+  `;
+  container.style.display = 'block';
+}
 
-      <div class="buttons" style="margin-top:16px">
-        <a class="btn small" href="https://github.com/Doudou-samb02/Gestion-d-une-Biblioth-que-.git" target="_blank">Voir le code</a>
-        <button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button>
-      </div>
+function closeProject() {
+  const modal = document.getElementById('projectModal');
+  const container = document.getElementById('projectVideoContainer');
 
-      <div id="projectVideoContainer" style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)">
-        <!-- L'iframe YouTube sera injectée ici -->
-      </div>
-    </div>
-  </div>
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
+  container.style.display = 'none';
+  container.innerHTML = '';
+}
+
 
   <script src="script.js"></script>
   <script>lucide.createIcons()</script>
