@@ -32,22 +32,10 @@ if(themeBtn){
 }
 
 /* ===== MOBILE MENU ===== */
-const burgerToggle = document.createElement('button');
-burgerToggle.id = 'burgerToggle';
-burgerToggle.innerHTML = '<i data-lucide="menu"></i>';
-burgerToggle.style.display = 'none';
-document.querySelector('.header-inner').prepend(burgerToggle);
+const burgerToggle = document.getElementById('burgerToggle');
+const mobileNav = document.getElementById('mobileMenu');
 
-const mobileNav = document.createElement('nav');
-mobileNav.className = 'mobile-nav';
-document.querySelector('header').appendChild(mobileNav);
-document.querySelectorAll('.main-nav a').forEach(a=>{
-  const link = a.cloneNode(true);
-  mobileNav.appendChild(link);
-});
-
-burgerToggle.addEventListener('click', ()=> mobileNav.classList.toggle('show'));
-if(window.lucide) lucide.createIcons();
+burgerToggle?.addEventListener('click', ()=> mobileNav.classList.toggle('show'));
 
 /* ===== HERO TYPING EFFECT ===== */
 const words = ["Développeur Web","Créateur d'applications","Passionné d'IA"];
@@ -69,7 +57,7 @@ function typeLoop(){
     setTimeout(typeLoop, 40);
   }
 }
-if(typingEl) typeLoop();
+typeLoop();
 
 /* ===== PARTICLES.JS ===== */
 if(window.particlesJS){
@@ -201,18 +189,43 @@ window.addEventListener('scroll', ()=>{
 });
 
 
+/* ===== MODAL PROJET ===== */
+const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE";
 
+function openProject(){
+  const modal = document.getElementById('projectModal');
+  const container = document.getElementById('projectVideoContainer');
 
+  // Réinitialise vidéo
+  container.innerHTML = '';
+  container.style.display = 'none';
 
+  // Affiche modal
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden','false');
+}
 
-function openProject(project){
-  const modal = document.getElementById("projectModal");
-  modal.classList.add("show");
+function showVideo(){
+  const container = document.getElementById('projectVideoContainer');
+  if(container.style.display === 'block') return;
+
+  container.innerHTML = `
+    <iframe src="${videoUrl}?autoplay=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="position:absolute; top:0; left:0; width:100%; height:100%;">
+    </iframe>
+  `;
+  container.style.display = 'block';
 }
 
 function closeProject(){
-  const modal = document.getElementById("projectModal");
-  modal.classList.remove("show");
+  const modal = document.getElementById('projectModal');
+  const container = document.getElementById('projectVideoContainer');
+
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+  container.style.display = 'none';
+  container.innerHTML = '';
 }
-
-
