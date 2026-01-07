@@ -157,10 +157,11 @@ footer .socials a:hover{color:var(--accent-2);transform:translateY(-2px);}
   height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:4px solid #EAB308; /* couleur primaire */
+  border:4px solid var(--accent); /* ✅ */
   box-shadow:0 15px 40px rgba(0,0,0,0.6);
   margin-bottom:20px;
 }
+
 
 /* =========================
    CARTE PROJET
@@ -229,15 +230,15 @@ footer .socials a:hover{color:var(--accent-2);transform:translateY(-2px);}
   padding:6px 14px;
   font-size:.85rem;
   border-radius:8px;
-  background:#DC2626; /* secondaire */
+  background:linear-gradient(90deg,var(--accent),var(--accent-2)); /* ✅ */
   color:#fff;
   text-decoration:none;
-  transition:background .3s ease, transform .2s ease;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .btn.small:hover{
-  background:#b91c1c;
-  transform:scale(1.05);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(6,182,212,0.25);
 }
 
 /* =====================
