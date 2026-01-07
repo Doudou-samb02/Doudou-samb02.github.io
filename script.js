@@ -226,5 +226,13 @@ function openProject(project){
 
 function closeProject(){
     const modal = document.getElementById("projectModal");
+    const container = document.getElementById("projectVideoContainer");
+
     modal.classList.remove("show");
+
+    // reset vidéo
+    if(container){
+        container.style.display = "none";
+        container.innerHTML = "";
+    }
 }
