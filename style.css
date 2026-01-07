@@ -256,6 +256,12 @@ footer .socials a:hover{color:var(--accent-2);transform:translateY(-2px);}
   color:white;
 }
 
+.btn.primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 36px rgba(6,182,212,0.35);
+}
+
+
 /* =====================
    PROJECT CARD IMAGE
 ===================== */
