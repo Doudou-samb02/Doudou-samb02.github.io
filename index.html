@@ -237,7 +237,7 @@ container.style.display = 'block';
 <script type="text/javascript">
   // Initialisation EmailJS
   (function(){
-    emailjs.init("VOTRE_PUBLIC_KEY"); // ← remplace par ton Public Key EmailJS
+    emailjs.init("-4KhJU17IvhW2Wvhp"); // ← remplace par ton Public Key EmailJS
   })();
 
   const form = document.getElementById('contactForm');
@@ -246,7 +246,7 @@ container.style.display = 'block';
   form.addEventListener('submit', function(e){
     e.preventDefault(); // empêche le rechargement de page
 
-    emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', this)
+    emailjs.sendForm('service_xse7ncn', 'template_fgvjnna', this)
       .then(() => {
         formMessage.textContent = "✅ Merci ! Votre message a été envoyé.";
         formMessage.style.color = "#22c55e"; // vert
