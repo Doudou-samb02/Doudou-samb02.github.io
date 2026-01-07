@@ -53,7 +53,16 @@ header{
   border-bottom: var(--glass-border);
   transition: background 0.3s ease;
 }
-header.scrolled{background: rgba(11,16,32,0.95);}
+/* Header scroll – thème sombre */
+:root[data-theme="dark"] header.scrolled{
+  background: rgba(11,16,32,0.95);
+}
+
+/* Header scroll – thème clair */
+:root[data-theme="light"] header.scrolled{
+  background: rgba(255,255,255,0.95);
+}
+
 .header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;}
 .logo{font-weight:700;color:var(--text);letter-spacing:0.3px;}
 .main-nav{display:flex;gap:18px;align-items:center;}
