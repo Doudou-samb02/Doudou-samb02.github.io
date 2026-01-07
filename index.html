@@ -166,17 +166,22 @@
 </div> 
 </section> 
 <!-- CONTACT --> 
-<section id="contact" class="section"> 
-<div class="container"> 
-<h2 class="section-title">Contact</h2> 
-<form class="contact-form" aria-label="Formulaire de contact" id="contactForm"> 
-<input type="text" name="name" placeholder="Nom" required> 
-<input type="email" name="email" placeholder="Email" required> 
-<textarea name="message" placeholder="Votre message..." required></textarea> 
-<button type="submit" class="btn">Envoyer</button> 
-</form> 
-</div> 
-</section> 
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="muted">Vous pouvez me contacter via ce formulaire ou directement par email.</p>
+
+    <form class="contact-form" aria-label="Formulaire de contact" id="contactForm">
+      <input type="text" name="name" placeholder="Nom" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit" class="btn primary">Envoyer</button>
+    </form>
+
+    <!-- Message de retour -->
+    <p id="formMessage" class="muted" style="margin-top:12px;"></p>
+  </div>
+</section>
 </main> 
 <!-- FOOTER --> 
 <footer> 
@@ -228,26 +233,26 @@ container.style.display = 'block';
 </script> 
 
 
-  <!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+ <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
+  // Initialisation EmailJS
   (function(){
-    emailjs.init("-4KhJU17IvhW2Wvhp"); // remplace par ton publicKey
+    emailjs.init("VOTRE_PUBLIC_KEY"); // ← remplace par ton Public Key EmailJS
   })();
 
   const form = document.getElementById('contactForm');
   const formMessage = document.getElementById('formMessage');
 
   form.addEventListener('submit', function(e){
-    e.preventDefault();
+    e.preventDefault(); // empêche le rechargement de page
 
-    emailjs.sendForm('service_xse7ncn', 'template_fgvjnna', this)
+    emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', this)
       .then(() => {
-        formMessage.textContent = "Merci ! Votre message a été envoyé.";
+        formMessage.textContent = "✅ Merci ! Votre message a été envoyé.";
         formMessage.style.color = "#22c55e"; // vert
         form.reset();
       }, (error) => {
-        formMessage.textContent = "Une erreur est survenue, veuillez réessayer.";
+        formMessage.textContent = "❌ Une erreur est survenue, veuillez réessayer.";
         formMessage.style.color = "#f87171"; // rouge
         console.error(error);
       });
