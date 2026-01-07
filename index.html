@@ -103,7 +103,9 @@
 <p>Application web complète pour gérer livres, emprunts et utilisateurs.</p> 
 <span class="tech">Racket / Programmation fonctionnelle</span> 
 <div style="margin-top:12px"> 
-<a class="btn small" href="#" onclick="openProject('biblio')">Voir le projet</a> 
+<button class="btn small" onclick="openProject('biblio')">
+  Voir le projet
+</button>
 </div> 
 </article> 
 <article class="card project-card" data-tilt role="article" aria-label="Projet Fo-Nei App"> 
@@ -212,14 +214,7 @@ const container = document.getElementById('projectVideoContainer');
 container.innerHTML = `<iframe src="${videoUrl}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>`; 
 container.style.display = 'block'; 
 } 
-function closeProject() { 
-const modal = document.getElementById('projectModal'); 
-const container = document.getElementById('projectVideoContainer'); 
-modal.style.display = 'none'; 
-container.style.display = 'none'; 
-// Supprime l'iframe pour réinitialiser la vidéo 
-container.innerHTML = ''; 
-} 
+
 </script> 
 </body> 
 </html>
