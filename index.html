@@ -102,17 +102,22 @@
 <div class="container"> 
 <h2 class="section-title">Projets</h2> 
 <div class="grid projects-grid"> 
-<article class="card project-card" data-tilt data-project="bibliotheque" aria-label="Projet Gestion de Bibliothèque"> 
-<img src="images/projects/1.png" alt="Projet Gestion de Bibliothèque" class="project-img"> 
-<h3>📚 Gestion d’une Bibliothèque</h3> 
-<p>Application web complète pour gérer livres, emprunts et utilisateurs.</p> 
-<span class="tech">Racket / Programmation fonctionnelle</span> 
-<div style="margin-top:12px"> 
-<button class="btn small" onclick="openProject('biblio')">
-  Voir le projet
-</button>
-</div> 
-</article> 
+<article class="project-card">
+  <img src="images/projects/1.png" class="project-img"/>
+
+  <div class="project-body">
+    <h3>Gestion d’une Bibliothèque</h3>
+    <p>Application web complète de gestion de livres et d’emprunts.</p>
+
+    <div class="project-footer">
+      <span class="tech">Spring Boot</span>
+      <button class="btn small" onclick="openProject('biblio')">
+        Voir le projet →
+      </button>
+    </div>
+  </div>
+</article>
+
 <article class="card project-card" data-tilt role="article" aria-label="Projet Fo-Nei App"> 
 <h3>🚌 Fo-Nei App</h3> 
 <p>Localisation bus + tickets numériques.</p> 
