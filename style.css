@@ -15,14 +15,15 @@
 
 /* Light theme overrides */
 :root[data-theme="light"]{
-  --bg: #F7FAFC;
+  --bg: #F9FAFB;
   --card: #FFFFFF;
-  --muted: #4B5563;
-  --text: #0B1220;
-  --glass: rgba(0,0,0,0.03);
-  --glass-2: rgba(0,0,0,0.02);
-  --glass-border: 1px solid rgba(0,0,0,0.06);
+  --text: #111827;
+  --muted: #6B7280;
+  --glass: rgba(0,0,0,0.04);
+  --glass-2: rgba(0,0,0,0.03);
+  --glass-border: 1px solid rgba(0,0,0,0.08);
 }
+
 
 /* BASE */
 *{box-sizing:border-box;}
@@ -365,4 +366,43 @@ footer .socials a:hover{color:var(--accent-2);transform:translateY(-2px);}
   min-width:140px;
   justify-content:center;
 }
+
+:root[data-theme="light"] .card{
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+:root[data-theme="light"] .card:hover{
+  box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+}
+
+:root[data-theme="light"] .btn{
+  border:1px solid rgba(0,0,0,0.12);
+  color:var(--text);
+}
+
+:root[data-theme="light"] .btn.secondary{
+  background:transparent;
+}
+
+:root[data-theme="light"] header{
+  background: rgba(255,255,255,0.75);
+}
+
+:root[data-theme="light"] .mobile-nav{
+  background: var(--bg);
+}
+
+:root[data-theme="light"] .section-title{
+  color: var(--accent);
+}
+
+:root[data-theme="light"] .project-card h3{
+  color: var(--text);
+}
+
+:root[data-theme="light"] .project-card p{
+  color: var(--muted);
+}
+
 
