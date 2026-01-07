@@ -226,5 +226,33 @@ container.style.display = 'block';
 } 
 
 </script> 
+
+
+  <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("-4KhJU17IvhW2Wvhp"); // remplace par ton publicKey
+  })();
+
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    emailjs.sendForm('service_xse7ncn', 'template_fgvjnna', this)
+      .then(() => {
+        formMessage.textContent = "Merci ! Votre message a été envoyé.";
+        formMessage.style.color = "#22c55e"; // vert
+        form.reset();
+      }, (error) => {
+        formMessage.textContent = "Une erreur est survenue, veuillez réessayer.";
+        formMessage.style.color = "#f87171"; // rouge
+        console.error(error);
+      });
+  });
+</script>
+
 </body> 
 </html>
