@@ -197,20 +197,7 @@ document.addEventListener('mousemove', e=>{
     }, 1200);
 });
 
-/* ===== CONTACT FORM SIMULÉ ===== */
-const form = document.querySelector('.contact-form');
-if(form){
-    form.addEventListener('submit',(e)=>{
-        e.preventDefault();
-        const btn = form.querySelector('button');
-        btn.textContent = 'Envoi...';
-        setTimeout(()=>{
-            btn.textContent = 'Envoyer';
-            alert('Merci — message simulé envoyé ! (pendant dev, intègre un back-end pour envoi réel)');
-            form.reset();
-        },1200);
-    });
-}
+
 
 /* ===== HEADER SCROLL EFFECT ===== */
 window.addEventListener('scroll', ()=>{
