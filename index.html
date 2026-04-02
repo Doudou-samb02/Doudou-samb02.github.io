@@ -1,263 +1,139 @@
-<!DOCTYPE html> 
-<html lang="fr"> 
-<head> 
-<meta charset="utf-8" /> 
-<meta name="viewport" content="width=device-width,initial-scale=1" /> 
-<meta name="description" content="Portfolio de Mouhamadou Doudou Samb — Développeur Web, Mobile et IA"> 
-<title>Portfolio | Doudou Samb</title> 
-<!-- Fonts + icons --> 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"> 
-<script src="https://unpkg.com/lucide@latest"></script> 
-<!-- Libraries --> 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/motion@11.11.0/dist/motion.min.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script> 
-<link rel="stylesheet" href="style.css"> 
-</head> 
-<body> 
-<!-- PARTICLES & CURSOR GLOW --> 
-<div id="particles-js" aria-hidden="true"></div> 
-<div id="cursor-glow" aria-hidden="true"></div> 
-<!-- HEADER --> 
-<header> 
-<div class="header-inner container"> 
-<div class="brand"> 
-<h1 class="logo">Doudou</h1> 
-</div> 
-<nav class="main-nav" role="navigation" aria-label="Main navigation"> 
-<a href="#about">À propos</a> 
-<a href="#services">Services</a> 
-<a href="#projects">Projets</a> 
-<a href="#experience">Expériences</a> 
-<a href="#skills">Compétences</a> 
-<a href="#contact">Contact</a> 
-</nav> 
-<div class="header-actions"> 
-<a class="cv-btn" href="cv.pdf" download aria-label="Télécharger CV">📄 CV</a> 
-<button id="themeToggle" aria-label="Basculer thème"><i data-lucide="moon"></i></button> 
-<button id="burgerToggle" aria-label="Menu mobile"><i data-lucide="menu"></i></button> 
-</div> 
-</div> 
-</header> 
-<!-- MOBILE MENU --> 
-<nav id="mobileMenu" class="mobile-nav" aria-label="Menu mobile"> 
-<a href="#about">À propos</a> 
-<a href="#services">Services</a> 
-<a href="#projects">Projets</a> 
-<a href="#experience">Expériences</a> 
-<a href="#skills">Compétences</a> 
-<a href="#contact">Contact</a> 
-</nav> 
-<!-- HERO --> 
-<main> 
-<section class="hero"> 
-<div class="hero-inner container" id="heroInner"> 
-<img src="images/doudou.jpeg" alt="Photo de profil Doudou" class="profile" /> 
-<p class="hello">Salut, je suis</p> 
-<h1 class="name">Mouhamadou Doudou Samb</h1> 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio | Doudou Samb</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="header-inner container">
+<h1 class="logo">Doudou</h1>
+
+<nav class="main-nav">
+<a href="#about">À propos</a>
+<a href="#projects">Projets</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="header-actions">
+<button id="themeToggle"></button>
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+
+<p class="hello">👋 Bonjour, je suis</p>
+
+<h1 class="name">Mouhamadou Doudou Samb</h1>
 
 <p class="hero-tagline">
-  Développeur Web & Mobile — Applications modernes, performantes et intelligentes
-</p>  
-<h3 class="typing"><span id="typing" aria-live="polite"></span></h3> 
-<div class="buttons"> 
+Développeur Web & Mobile spécialisé en applications modernes et IA
+</p>
+
+<div class="buttons">
 <a class="btn primary" href="#projects">Voir mes projets</a>
 <a class="btn secondary" href="#contact">Me contacter</a>
+</div>
 
-</div> 
-</div> 
-</section> 
-<!-- ABOUT --> 
-<section id="about" class="section about"> 
-<div class="container"> 
-<h2 class="section-title">À propos</h2> 
-<p>Développeur web passionné, spécialisé en création d’applications modernes, performantes et intuitives. J’aime transformer des idées en produits concrets.</p> 
-</div> 
-</section> 
-<!-- SERVICES --> 
-<section id="services" class="section"> 
-<div class="container"> 
-<h2 class="section-title">Services</h2> 
-<div class="grid"> 
-<article class="card service-card" data-tilt role="article" aria-label="Développement Web"> 
-<i data-lucide="code"></i> 
-<h3>Développement Web</h3> 
-<p>Sites modernes, rapides et responsives.</p> 
-</article> 
-<article class="card service-card" data-tilt role="article" aria-label="Apps Mobiles"> 
-<i data-lucide="smartphone"></i> 
-<h3>Apps Mobiles</h3> 
-<p>Applications Android / iOS performantes.</p> 
-</article> 
-<article class="card service-card" data-tilt role="article" aria-label="IA et Automatisation"> 
-<i data-lucide="cpu"></i> 
-<h3>IA / Automatisation</h3> 
-<p>Intégration d’IA et assistants intelligents.</p> 
-</article> 
-</div> 
-</div> 
-</section> 
-<!-- PROJECTS --> 
-<section id="projects" class="section"> 
-<div class="container"> 
-<h2 class="section-title">Projets</h2> 
-<div class="grid projects-grid"> 
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<div class="container">
+
+<h2 class="section-title">Projets</h2>
+
+<div class="grid">
+
+<!-- PROJET 1 -->
 <article class="project-card">
-  <img src="images/projects/1.png" class="project-img"/>
+<img src="images/projects/1.png" class="project-img"/>
 
-  <div class="project-body">
-    <h3>Gestion d’une Bibliothèque</h3>
-    <p>Application web complète de gestion de livres et d’emprunts.</p>
+<div class="project-body">
+<h3>📚 Gestion Bibliothèque</h3>
+<p>Application web complète de gestion de livres.</p>
 
-    <div class="project-footer">
-      <span class="tech">Spring Boot</span>
-      <button class="btn small" onclick="openProject('biblio')">
-        Voir le projet →
-      </button>
-    </div>
-  </div>
+<div class="project-footer">
+<span class="tech">Spring Boot</span>
+<button class="btn small" onclick="openProject()">Voir</button>
+</div>
+</div>
 </article>
 
-<article class="card project-card" data-tilt role="article" aria-label="Projet Fo-Nei App"> 
-<h3>🚌 Fo-Nei App</h3> 
-<p></p> 
-<span class="tech">FlutterFlow / Node</span> 
-<div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet Fo-Nei">Voir</a></div> 
-</article> 
-<article class="card project-card" data-tilt role="article" aria-label="Projet IA Détection Billets CFA"> 
-<h3>🤖StoryStasia</h3> 
-<p>Application qui raconte un conte pour enfant</p> 
-<span class="tech">Flutterflow</span> 
-<div style="margin-top:12px"><a class="btn small" href="#" aria-label="Voir projet IA">Voir</a></div> 
-</article> 
-</div> 
-</div> 
-</section> 
-<!-- EXPERIENCE --> 
-<section id="experience" class="section"> 
-<div class="container"> 
-<h2 class="section-title">Expériences</h2> 
-<div class="timeline"> 
-<div class="timeline-item card"> 
-<div> 
-<h3>Développeur Web</h3> 
-<p class="muted">Création de projets web modernes et dynamiques.</p> 
-</div> 
-<span>2024 - Présent</span> 
-</div> 
-<div class="timeline-item card"> 
-<div> 
-<h3>Développeur Mobile</h3> 
-<p class="muted">Apps React Native, FlutterFlow & Expo.</p> 
-</div> 
-<span>2023 - Présent</span> 
-</div> 
-</div> 
-</div> 
-</section> 
-<!-- SKILLS --> 
-<section id="skills" class="section"> 
-<div class="container"> 
-<h2 class="section-title">Compétences</h2> 
-<div class="skill"><span>HTML / CSS / JS</span><div class="bar"><div data-width="90%"></div></div></div> 
-<div class="skill"><span>Node.js / Express</span><div class="bar"><div data-width="75%"></div></div></div> 
-<div class="skill"><span>React / React Native</span><div class="bar"><div data-width="85%"></div></div></div> 
-<div class="skill"><span>IA / Python</span><div class="bar"><div data-width="70%"></div></div></div> 
-</div> 
-</section> 
-<!-- CONTACT --> 
-<section id="contact" class="section">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="muted">Vous pouvez me contacter via ce formulaire ou directement par email.</p>
+<!-- PROJET 2 -->
+<article class="project-card">
+<img src="images/projects/kid.png" class="project-img"/>
 
-    <form class="contact-form" aria-label="Formulaire de contact" id="contactForm">
-      <input type="text" name="name" placeholder="Nom" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-      <button type="submit" class="btn primary">Envoyer</button>
-    </form>
+<div class="project-body">
+<h3>🎨 KidActivities</h3>
+<p>Plateforme de réservation d’activités pour enfants.</p>
 
-    <!-- Message de retour -->
-    <p id="formMessage" class="muted" style="margin-top:12px;"></p>
-  </div>
+<div class="project-footer">
+<span class="tech">FlutterFlow</span>
+<button class="btn small" onclick="openKidProject()">Voir</button>
+</div>
+</div>
+</article>
+
+</div>
+</div>
 </section>
-</main> 
-<!-- FOOTER --> 
-<footer> 
-<div class="container"> © 2025 — Doudou Samb. Tous droits réservés. 
-<div class="socials"> 
-<a href="#" aria-label="GitHub"><i data-lucide="github"></i></a> 
-<a href="https://www.linkedin.com/in/mouhamadou-doudou-samb-823914246" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a> 
-<a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a> 
-</div> 
-</div> 
-</footer> 
-<script src="script.js"></script> 
-<script>lucide.createIcons()</script> 
-<!-- MODAL PROJET BIBLIOTHÈQUE --> 
-<div id="projectModal" class="modal" aria-hidden="true"> 
-<div class="modal-content"> 
-<button class="modal-close" onclick="closeProject()">✖</button> 
-<h2>📚 Gestion d’une Bibliothèque</h2> 
-<p class="muted"> Application web complète permettant la gestion efficace d’une bibliothèque, avec un système sécurisé pour les administrateurs et les lecteurs. </p> 
-<h4>✨ Fonctionnalités principales</h4> 
-<ul> 
-<li>Gestion des utilisateurs (inscription, connexion, rôles)</li> 
-<li>Ajout, modification et suppression de livres</li> 
-<li>Gestion des auteurs et association aux livres</li> 
-<li>Emprunt et retour des livres avec suivi de disponibilité</li> 
-<li>Recherche et filtrage par titre, auteur et genre</li> 
-</ul> 
-<h4>🛠 Technologies utilisées</h4> 
-<p class="tech"> Spring Boot · Java · MySQL · HTML · CSS · JavaScript </p> 
-<div class="buttons" style="margin-top:16px"> 
-<a class="btn small" href="https://github.com/Doudou-samb02/Gestion-d-une-Biblioth-que-.git" target="_blank">Voir le code</a> 
-<button class="btn small secondary" onclick="showVideo()">🎬 Voir la vidéo</button> 
-</div> 
-<!-- Conteneur vidéo (iframe YouTube) caché par défaut --> 
-<div id="projectVideoContainer" style="display:none; margin-top:16px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2)"> 
-<!-- L'iframe sera injecté via JS --> 
-</div> 
-</div> 
-</div> 
-<script> 
-const videoUrl = "https://www.youtube.com/embed/FLlu4MnW1yE"; 
-function showVideo() { 
-const container = document.getElementById('projectVideoContainer'); 
-// Injecte l'iframe YouTube à chaque ouverture 
-container.innerHTML = `<iframe src="${videoUrl}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>`; 
-container.style.display = 'block'; 
-} 
 
-</script> 
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="container">
 
+<h2 class="section-title">Contact</h2>
 
- <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  // Initialisation EmailJS
-  (function(){
-    emailjs.init("-4KhJU17IvhW2Wvhp"); // ← remplace par ton Public Key EmailJS
-  })();
+<form class="contact-form">
+<input type="text" placeholder="Nom">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button class="btn primary">Envoyer</button>
+</form>
 
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
+</div>
+</section>
 
-  form.addEventListener('submit', function(e){
-    e.preventDefault(); // empêche le rechargement de page
+</main>
 
-    emailjs.sendForm('service_xse7ncn', 'template_fgvjnna', this)
-      .then(() => {
-        formMessage.textContent = "✅ Merci ! Votre message a été envoyé.";
-        formMessage.style.color = "#22c55e"; // vert
-        form.reset();
-      }, (error) => {
-        formMessage.textContent = "❌ Une erreur est survenue, veuillez réessayer.";
-        formMessage.style.color = "#f87171"; // rouge
-        console.error(error);
-      });
-  });
-</script>
+<!-- MODAL BIBLIO -->
+<div id="projectModal" class="modal">
+<div class="modal-content">
+<button onclick="closeProject()">✖</button>
+<h2>Gestion Bibliothèque</h2>
+<p>Projet complet de gestion de livres.</p>
+</div>
+</div>
 
-</body> 
+<!-- MODAL KID -->
+<div id="kidModal" class="modal">
+<div class="modal-content">
+<button onclick="closeKidProject()">✖</button>
+
+<h2>🎨 KidActivities</h2>
+
+<iframe src="https://www.youtube.com/embed/xHq7iD3HRmc"
+style="width:100%;height:300px;"></iframe>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
 </html>
