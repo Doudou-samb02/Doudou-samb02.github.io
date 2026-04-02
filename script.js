@@ -1,139 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portfolio | Doudou Samb</title>
+function openProject(){
+  document.getElementById("projectModal").classList.add("show");
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
+function closeProject(){
+  document.getElementById("projectModal").classList.remove("show");
+}
 
-<link rel="stylesheet" href="style.css">
-</head>
+function openKidProject(){
+  document.getElementById("kidModal").classList.add("show");
+}
 
-<body>
-
-<header>
-<div class="header-inner container">
-<h1 class="logo">Doudou</h1>
-
-<nav class="main-nav">
-<a href="#about">À propos</a>
-<a href="#projects">Projets</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<div class="header-actions">
-<button id="themeToggle"></button>
-</div>
-</div>
-</header>
-
-<main>
-
-<!-- HERO -->
-<section class="hero">
-<div class="hero-inner">
-
-<p class="hello">👋 Bonjour, je suis</p>
-
-<h1 class="name">Mouhamadou Doudou Samb</h1>
-
-<p class="hero-tagline">
-Développeur Web & Mobile spécialisé en applications modernes et IA
-</p>
-
-<div class="buttons">
-<a class="btn primary" href="#projects">Voir mes projets</a>
-<a class="btn secondary" href="#contact">Me contacter</a>
-</div>
-
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-<div class="container">
-
-<h2 class="section-title">Projets</h2>
-
-<div class="grid">
-
-<!-- PROJET 1 -->
-<article class="project-card">
-<img src="images/projects/1.png" class="project-img"/>
-
-<div class="project-body">
-<h3>📚 Gestion Bibliothèque</h3>
-<p>Application web complète de gestion de livres.</p>
-
-<div class="project-footer">
-<span class="tech">Spring Boot</span>
-<button class="btn small" onclick="openProject()">Voir</button>
-</div>
-</div>
-</article>
-
-<!-- PROJET 2 -->
-<article class="project-card">
-<img src="images/projects/kid.png" class="project-img"/>
-
-<div class="project-body">
-<h3>🎨 KidActivities</h3>
-<p>Plateforme de réservation d’activités pour enfants.</p>
-
-<div class="project-footer">
-<span class="tech">FlutterFlow</span>
-<button class="btn small" onclick="openKidProject()">Voir</button>
-</div>
-</div>
-</article>
-
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<div class="container">
-
-<h2 class="section-title">Contact</h2>
-
-<form class="contact-form">
-<input type="text" placeholder="Nom">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn primary">Envoyer</button>
-</form>
-
-</div>
-</section>
-
-</main>
-
-<!-- MODAL BIBLIO -->
-<div id="projectModal" class="modal">
-<div class="modal-content">
-<button onclick="closeProject()">✖</button>
-<h2>Gestion Bibliothèque</h2>
-<p>Projet complet de gestion de livres.</p>
-</div>
-</div>
-
-<!-- MODAL KID -->
-<div id="kidModal" class="modal">
-<div class="modal-content">
-<button onclick="closeKidProject()">✖</button>
-
-<h2>🎨 KidActivities</h2>
-
-<iframe src="https://www.youtube.com/embed/xHq7iD3HRmc"
-style="width:100%;height:300px;"></iframe>
-
-</div>
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+function closeKidProject(){
+  document.getElementById("kidModal").classList.remove("show");
+}
