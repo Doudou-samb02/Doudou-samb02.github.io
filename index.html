@@ -1,140 +1,258 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portfolio | Doudou Samb</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/lucide@0.276.0/dist/lucide.min.css" rel="stylesheet">
+<style>
+/* ===== CSS Complet ===== */
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="script.js"></script>
+/* ===== VARIABLES ===== */
+:root{
+  --bg: #0B1020;
+  --card: #0F1724;
+  --muted: #97A0B3;
+  --text: #E6EEF8;
+  --accent: #7C3AED;
+  --accent-2: #06B6D4;
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.02);
+  --radius: 12px;
+  --maxw: 1100px;
+  --glass-border: 1px solid rgba(255,255,255,0.03);
+}
+:root[data-theme="light"]{
+  --bg: #F9FAFB;
+  --card: #FFFFFF;
+  --text: #111827;
+  --muted: #6B7280;
+  --glass: rgba(0,0,0,0.04);
+  --glass-2: rgba(0,0,0,0.03);
+  --glass-border: 1px solid rgba(0,0,0,0.08);
+}
 
-<link rel="stylesheet" href="style.css">
+/* BASE */
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.07), transparent),
+              radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.04), transparent),
+              var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  scroll-behavior:smooth;
+  min-height:100%;
+  padding-top:72px;
+}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+/* HEADER */
+header{
+  position:fixed;left:0;right:0;top:0;height:72px;
+  display:flex;align-items:center;z-index:60;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-bottom: var(--glass-border);
+  transition: background 0.3s ease;
+}
+:root[data-theme="dark"] header.scrolled{background: rgba(11,16,32,0.95);}
+:root[data-theme="light"] header.scrolled{background: rgba(255,255,255,0.95);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+.logo{font-weight:700;color:var(--text);letter-spacing:0.3px;}
+.main-nav{display:flex;gap:18px;align-items:center;}
+.main-nav a{color:var(--text);text-decoration:none;font-weight:600;opacity:0.85;padding:8px 10px;border-radius:8px;transition:all .18s ease;}
+.main-nav a:hover{background:var(--glass);color:var(--accent-2);transform:translateY(-2px);}
+#themeToggle,#burgerToggle{background:transparent;border:0;color:var(--text);cursor:pointer;padding:8px;border-radius:8px;}
+.cv-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(6,182,212,0.08);}
+.header-actions{display:flex;gap:12px;align-items:center;}
+
+/* MOBILE MENU */
+.mobile-nav{position:fixed;top:72px;left:0;right:0;background:var(--bg);display:none;flex-direction:column;gap:12px;padding:20px;z-index:55;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text);text-decoration:none;font-weight:600;padding:10px;border-radius:8px;}
+.mobile-nav a:hover{background:var(--glass);color:var(--accent-2);}
+
+/* HERO */
+.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:20px;padding-bottom:30px;position:relative;overflow:hidden;}
+.hero-inner{display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:10;max-width:700px;margin:auto;}
+.hero-tagline{max-width:600px;font-size:16px;color:var(--muted);text-align:center;}
+.hero::before{content:"";position:absolute;inset:-30% -20% auto -20%;height:120%;background:linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.07));filter:blur(80px);opacity:0.7;transform:translateY(-10%);animation:float 12s linear infinite;pointer-events:none;z-index:1;}
+@keyframes float{0%{transform:translateY(-10%)}50%{transform:translateY(6%)}100%{transform:translateY(-10%)}}
+
+/* PROFILE */
+.profile{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--accent);box-shadow:0 15px 40px rgba(0,0,0,0.6);margin-bottom:20px;transition:transform .6s cubic-bezier(.2,.9,.3,1);}
+.profile:hover{transform:scale(1.03) rotate(-1deg);}
+
+/* HERO TYPING */
+.hello{font-weight:600;color:var(--muted);letter-spacing:0.6px;margin:0;}
+.name{font-size:36px;margin:0;font-weight:800;letter-spacing:0.2px;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.typing{font-size:18px;color:var(--accent-2);margin:0;height:24px;position:relative;}
+#typing::after{content:'|';margin-left:2px;animation:blink 0.8s infinite;}
+@keyframes blink{0%,50%,100%{opacity:1}25%,75%{opacity:0}}
+
+/* BUTTONS */
+.buttons{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 16px;border-radius:10px;color:var(--text);text-decoration:none;font-weight:700;transition:all .25s;}
+.btn.small{padding:8px 12px;font-size:14px;}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);}
+.btn:hover{transform:translateY(-6px);box-shadow:0 12px 34px rgba(6,182,212,0.08);}
+
+/* SECTIONS */
+.section{padding:80px 20px;}
+.section-title{font-size:24px;color:var(--accent);margin-bottom:18px;font-weight:700;}
+.muted{color:var(--muted);font-size:14px;}
+
+/* GRID & CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
+.card,.project-card{background: var(--card);border-radius:var(--radius);padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow: 0 8px 30px rgba(2,6,23,0.6);transition:transform .36s, box-shadow .36s, background .36s;position:relative;overflow:hidden;}
+.card:hover,.project-card:hover{transform:translateY(-10px) rotateZ(-0.6deg);box-shadow:0 24px 60px rgba(6,182,212,0.08);}
+.project-img{width:100%;height:180px;object-fit:cover;border-radius:14px;margin-bottom:12px;}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:100;}
+.modal.show{opacity:1;pointer-events:auto;}
+.modal-content{background:var(--card);border-radius:16px;padding:24px;max-width:600px;width:90%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);animation:modalIn .45s cubic-bezier(.2,.8,.3,1);}
+@keyframes modalIn{from{opacity:0; transform:translateY(30px) scale(.96);}to{opacity:1; transform:translateY(0) scale(1);}}
+.modal-close{position:absolute;top:14px;right:14px;border:0;background:transparent;font-size:20px;color:var(--muted);cursor:pointer;}
+</style>
 </head>
-
 <body>
-
 <header>
-<div class="header-inner container">
-<h1 class="logo">Doudou</h1>
-
-<nav class="main-nav">
-<a href="#about">À propos</a>
-<a href="#projects">Projets</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<div class="header-actions">
-<button id="themeToggle"></button>
-</div>
-</div>
+  <div class="header-inner">
+    <div class="logo">MonPortfolio</div>
+    <nav class="main-nav">
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button id="themeToggle"></button>
+    </div>
+  </div>
 </header>
 
-<main>
-
-<!-- HERO -->
 <section class="hero">
-<div class="hero-inner">
-
-<p class="hello">👋 Bonjour, je suis</p>
-
-<h1 class="name">Mouhamadou Doudou Samb</h1>
-
-<p class="hero-tagline">
-Développeur Web & Mobile spécialisé en applications modernes et IA
-</p>
-
-<div class="buttons">
-<a class="btn primary" href="#projects">Voir mes projets</a>
-<a class="btn secondary" href="#contact">Me contacter</a>
-</div>
-
-</div>
+  <div class="hero-inner">
+    <img src="https://i.pravatar.cc/160" alt="Profil" class="profile">
+    <h2 class="hello">Bonjour, je suis</h2>
+    <h1 class="name">Mouhamadou</h1>
+    <p class="typing" id="typing"></p>
+    <div class="buttons">
+      <a href="#contact" class="btn primary">Me contacter</a>
+      <a href="#projects" class="btn secondary">Mes projets</a>
+    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
-<div class="container">
-
-<h2 class="section-title">Projets</h2>
-
-<div class="grid">
-
-<!-- PROJET 1 -->
-<article class="project-card">
-<img src="images/projects/1.png" class="project-img"/>
-
-<div class="project-body">
-<h3>📚 Gestion Bibliothèque</h3>
-<p>Application web complète de gestion de livres.</p>
-
-<div class="project-footer">
-<span class="tech">Spring Boot</span>
-<button class="btn small" onclick="openProject()">Voir</button>
-</div>
-</div>
-</article>
-
-<!-- PROJET 2 -->
-<article class="project-card">
-<img src="images/projects/kid.png" class="project-img"/>
-
-<div class="project-body">
-<h3>🎨 KidActivities</h3>
-<p>Plateforme de réservation d’activités pour enfants.</p>
-
-<div class="project-footer">
-<span class="tech">FlutterFlow</span>
-<button class="btn small" onclick="openKidProject()">Voir</button>
-</div>
-</div>
-</article>
-
-</div>
-</div>
+<section class="section" id="projects">
+  <h2 class="section-title">Projets</h2>
+  <div class="grid">
+    <div class="project-card" onclick="openProject('modal1')">
+      <img class="project-img" src="https://picsum.photos/300/180?random=1" alt="">
+      <h3>Projet 1</h3>
+      <p class="muted">Description courte du projet</p>
+    </div>
+    <div class="project-card" onclick="openProject('modal2')">
+      <img class="project-img" src="https://picsum.photos/300/180?random=2" alt="">
+      <h3>Projet 2</h3>
+      <p class="muted">Description courte du projet</p>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-<div class="container">
-
-<h2 class="section-title">Contact</h2>
-
-<form class="contact-form">
-<input type="text" placeholder="Nom">
-<input type="email" placeholder="Email">
-<textarea placeholder="Message"></textarea>
-<button class="btn primary">Envoyer</button>
-</form>
-
-</div>
-</section>
-
-</main>
-
-<!-- MODAL BIBLIO -->
-<div id="projectModal" class="modal">
-<div class="modal-content">
-<button onclick="closeProject()">✖</button>
-<h2>Gestion Bibliothèque</h2>
-<p>Projet complet de gestion de livres.</p>
-</div>
+<!-- MODALS -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProject('modal1')">&times;</button>
+    <h2>Projet 1</h2>
+    <p>Détails complets du projet 1...</p>
+  </div>
 </div>
 
-<!-- MODAL KID -->
-<div id="kidModal" class="modal">
-<div class="modal-content">
-<button onclick="closeKidProject()">✖</button>
-
-<h2>🎨 KidActivities</h2>
-
-<iframe src="https://www.youtube.com/embed/xHq7iD3HRmc"
-style="width:100%;height:300px;"></iframe>
-
-</div>
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeProject('modal2')">&times;</button>
+    <h2>Projet 2</h2>
+    <p>Détails complets du projet 2...</p>
+  </div>
 </div>
 
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.276.0/dist/lucide.min.js"></script>
+<script>
+/* ===== JS Complet ===== */
 
+/* THEME */
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeToggle');
+function setLucideIcon(name){
+    if(!themeBtn) return;
+    themeBtn.innerHTML = `<i data-lucide="${name}"></i>`;
+    if(window.lucide) lucide.createIcons();
+}
+function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    setLucideIcon(theme === 'light' ? 'sun' : 'moon');
+}
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme) applyTheme(savedTheme);
+else applyTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+if(themeBtn){
+    themeBtn.addEventListener('click', ()=>{
+        const curTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(curTheme);
+        localStorage.setItem('theme', curTheme);
+    });
+}
+
+/* MOBILE MENU */
+const burgerToggle = document.createElement('button');
+burgerToggle.id = 'burgerToggle';
+burgerToggle.innerHTML = '<i data-lucide="menu"></i>';
+document.querySelector('.header-inner').prepend(burgerToggle);
+const mobileNav = document.createElement('nav');
+mobileNav.className = 'mobile-nav';
+document.querySelector('header').appendChild(mobileNav);
+document.querySelectorAll('.main-nav a').forEach(a=> mobileNav.appendChild(a.cloneNode(true)));
+burgerToggle.addEventListener('click', ()=> mobileNav.classList.toggle('show'));
+if(window.lucide) lucide.createIcons();
+
+/* HERO TYPING */
+const words = ["Développeur Web","Créateur d'applications","Passionné d'IA"];
+const typingEl = document.getElementById('typing');
+let wIndex = 0, chIndex = 0, deleting = false;
+function typeLoop(){
+    if(!typingEl) return;
+    const word = words[wIndex];
+    if(!deleting){
+        chIndex++;
+        typingEl.textContent = word.slice(0,chIndex);
+        if(chIndex === word.length){ deleting = true; setTimeout(typeLoop,900); return; }
+        setTimeout(typeLoop,80);
+    } else {
+        chIndex--;
+        typingEl.textContent = word.slice(0,chIndex);
+        if(chIndex === 0){ deleting = false; wIndex=(wIndex+1)%words.length; setTimeout(typeLoop,200); return; }
+        setTimeout(typeLoop,40);
+    }
+}
+if(typingEl) typeLoop();
+
+/* HEADER SCROLL */
+window.addEventListener('scroll', ()=>{
+    const header = document.querySelector('header');
+    if(window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+});
+
+/* MODAL */
+function openProject(id){const modal=document.getElementById(id);if(modal) modal.classList.add('show');}
+function closeProject(id){const modal=document.getElementById(id);if(modal) modal.classList.remove('show');}
+</script>
 </body>
 </html>
