@@ -1,225 +1,139 @@
-/* ===== THEME: auto + toggle (persist) ===== */
-const root = document.documentElement;
-const themeBtn = document.getElementById('themeToggle');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portfolio | Doudou Samb</title>
 
-function setLucideIcon(name){
-    if(!themeBtn) return;
-    themeBtn.innerHTML = `<i data-lucide="${name}"></i>`;
-    if(window.lucide) lucide.createIcons();
-}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 
-function applyTheme(theme){
-    root.setAttribute('data-theme', theme);
-    setLucideIcon(theme === 'light' ? 'sun' : 'moon');
-}
+<link rel="stylesheet" href="style.css">
+</head>
 
-// Load saved theme or system preference
-const savedTheme = localStorage.getItem('theme');
-if(savedTheme){
-    applyTheme(savedTheme);
-}else{
-    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    applyTheme(prefersLight ? 'light' : 'dark');
-}
+<body>
 
-// Toggle theme
-if(themeBtn){
-    themeBtn.addEventListener('click', ()=>{
-        const curTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        applyTheme(curTheme);
-        localStorage.setItem('theme', curTheme);
-    });
-}
+<header>
+<div class="header-inner container">
+<h1 class="logo">Doudou</h1>
 
-/* ===== MOBILE MENU ===== */
-const burgerToggle = document.createElement('button');
-burgerToggle.id = 'burgerToggle';
-burgerToggle.innerHTML = '<i data-lucide="menu"></i>';
-burgerToggle.style.display = 'none';
-document.querySelector('.header-inner').prepend(burgerToggle);
+<nav class="main-nav">
+<a href="#about">À propos</a>
+<a href="#projects">Projets</a>
+<a href="#contact">Contact</a>
+</nav>
 
-const mobileNav = document.createElement('nav');
-mobileNav.className = 'mobile-nav';
-document.querySelector('header').appendChild(mobileNav);
+<div class="header-actions">
+<button id="themeToggle"></button>
+</div>
+</div>
+</header>
 
-document.querySelectorAll('.main-nav a').forEach(a=>{
-    const link = a.cloneNode(true);
-    mobileNav.appendChild(link);
-});
+<main>
 
-burgerToggle.addEventListener('click', ()=> mobileNav.classList.toggle('show'));
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
 
-if(window.lucide) lucide.createIcons();
+<p class="hello">👋 Bonjour, je suis</p>
 
-/* ===== HERO TYPING EFFECT ===== */
-const words = ["Développeur Web","Créateur d'applications","Passionné d'IA"];
-const typingEl = document.getElementById('typing');
-let wIndex = 0, chIndex = 0, deleting = false;
+<h1 class="name">Mouhamadou Doudou Samb</h1>
 
-function typeLoop(){
-    if(!typingEl) return;
-    const word = words[wIndex];
-    if(!deleting){
-        chIndex++;
-        typingEl.textContent = word.slice(0,chIndex);
-        if(chIndex === word.length){
-            deleting = true;
-            setTimeout(typeLoop, 900);
-            return;
-        }
-        setTimeout(typeLoop, 80);
-    } else {
-        chIndex--;
-        typingEl.textContent = word.slice(0,chIndex);
-        if(chIndex === 0){
-            deleting = false;
-            wIndex = (wIndex+1)%words.length;
-            setTimeout(typeLoop, 200);
-            return;
-        }
-        setTimeout(typeLoop, 40);
-    }
-}
+<p class="hero-tagline">
+Développeur Web & Mobile spécialisé en applications modernes et IA
+</p>
 
-if(typingEl) typeLoop();
+<div class="buttons">
+<a class="btn primary" href="#projects">Voir mes projets</a>
+<a class="btn secondary" href="#contact">Me contacter</a>
+</div>
 
-/* ===== PARTICLES.JS ===== */
-if(window.particlesJS){
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 50, density: { enable: true, value_area: 900 } },
-            color: { value: ["#7C3AED","#06B6D4","#ffffff"] },
-            shape: { type: "circle" },
-            opacity: { value: 0.12, random: true },
-            size: { value: 4, random: true },
-            line_linked: { enable: false },
-            move: { enable: true, speed: 1.4, direction: "none", out_mode: "out" }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: false }, onclick: { enable: false } }
-        },
-        retina_detect: true
-    });
-}
+</div>
+</section>
 
-/* ===== VANILLA TILT ===== */
-document.addEventListener('DOMContentLoaded', ()=>{
-    const tiltEls = document.querySelectorAll('[data-tilt]');
-    if(tiltEls.length && window.VanillaTilt){
-        VanillaTilt.init(tiltEls, { max: 10, speed: 400, glare: true, "max-glare": 0.12, scale: 1.02 });
-    }
-});
+<!-- PROJECTS -->
+<section id="projects" class="section">
+<div class="container">
 
-/* ===== SKILL BARS ANIMATION ===== */
-const skillBars = document.querySelectorAll('.bar > div');
-if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries, obs)=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                const el = entry.target;
-                const width = el.getAttribute('data-width') || '70%';
-                el.style.width = width;
-                obs.unobserve(el);
-            }
-        });
-    }, {threshold: 0.32});
-    skillBars.forEach(bar => io.observe(bar));
-} else {
-    skillBars.forEach(b => b.style.width = b.getAttribute('data-width') || '70%');
-}
+<h2 class="section-title">Projets</h2>
 
-/* ===== STAGGERED ANIMATIONS ===== */
-function animateStagger(selectors, stagger = 0.08){
-    const els = document.querySelectorAll(selectors);
-    if(!els.length) return;
-    const io = new IntersectionObserver((entries, obs)=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                const list = Array.from(entry.target.querySelectorAll(selectors));
-                if(list.length === 0) {
-                    motion.animate(entry.target, {opacity:[0,1], translateY:[18,0], scale:[0.995,1]}, {duration:0.8, easing:'ease-out'});
-                } else {
-                    list.forEach((el,i)=>{
-                        motion.animate(el, {opacity:[0,1], translateY:[18,0], scale:[0.995,1]}, {duration:0.7, delay:i*stagger, easing:'ease-out'});
-                    });
-                }
-                obs.unobserve(entry.target);
-            }
-        });
-    }, {threshold:0.18});
-    document.querySelectorAll(selectors).forEach(el=>{
-        let parent = el.parentElement;
-        if(parent) io.observe(parent);
-    });
-}
+<div class="grid">
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const heroInner = document.getElementById('heroInner');
-    if(heroInner) motion.animate(heroInner, { opacity:[0,1], translateY:[20,0] }, { duration: 0.9, easing: "ease-out" });
-    animateStagger('.service-card');
-    animateStagger('.project-card');
-    animateStagger('.timeline-item');
-    animateStagger('.skill');
-    if(window.lucide) lucide.createIcons();
-});
+<!-- PROJET 1 -->
+<article class="project-card">
+<img src="images/projects/1.png" class="project-img"/>
 
-/* ===== HERO PARALLAX ===== */
-const hero = document.querySelector('.hero');
-const particlesLayer = document.getElementById('particles-js');
+<div class="project-body">
+<h3>📚 Gestion Bibliothèque</h3>
+<p>Application web complète de gestion de livres.</p>
 
-if(hero){
-    hero.addEventListener('mousemove', e=>{
-        const rect = hero.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        if(particlesLayer) particlesLayer.style.transform = `translate(${(x-0.5)*6}px, ${(y-0.5)*6}px)`;
-        const heroInner = document.getElementById('heroInner');
-        if(heroInner) heroInner.style.transform = `translate(${(x-0.5)*8}px, ${(y-0.5)*8}px)`;
-    });
-    hero.addEventListener('mouseleave', ()=>{
-        if(particlesLayer) particlesLayer.style.transform = `translate(0,0)`;
-        const heroInner = document.getElementById('heroInner');
-        if(heroInner) heroInner.style.transform = `translate(0,0)`;
-    });
-}
+<div class="project-footer">
+<span class="tech">Spring Boot</span>
+<button class="btn small" onclick="openProject()">Voir</button>
+</div>
+</div>
+</article>
 
-/* ===== CUSTOM CURSOR GLOW ===== */
-const cursor = document.getElementById('cursor-glow');
-document.addEventListener('mousemove', e=>{
-    if(!cursor) return;
-    cursor.style.opacity = '1';
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-    clearTimeout(cursor._fade);
-    cursor._fade = setTimeout(()=>{
-        cursor.style.opacity = '0';
-    }, 1200);
-});
+<!-- PROJET 2 -->
+<article class="project-card">
+<img src="images/projects/kid.png" class="project-img"/>
 
+<div class="project-body">
+<h3>🎨 KidActivities</h3>
+<p>Plateforme de réservation d’activités pour enfants.</p>
 
+<div class="project-footer">
+<span class="tech">FlutterFlow</span>
+<button class="btn small" onclick="openKidProject()">Voir</button>
+</div>
+</div>
+</article>
 
-/* ===== HEADER SCROLL EFFECT ===== */
-window.addEventListener('scroll', ()=>{
-    const header = document.querySelector('header');
-    if(window.scrollY > 40) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-});
+</div>
+</div>
+</section>
 
-function openProject(project){
-    const modal = document.getElementById("projectModal");
-    modal.classList.add("show");
-}
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="container">
 
-function closeProject(){
-    const modal = document.getElementById("projectModal");
-    const container = document.getElementById("projectVideoContainer");
+<h2 class="section-title">Contact</h2>
 
-    modal.classList.remove("show");
+<form class="contact-form">
+<input type="text" placeholder="Nom">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button class="btn primary">Envoyer</button>
+</form>
 
-    // reset vidéo
-    if(container){
-        container.style.display = "none";
-        container.innerHTML = "";
-    }
-}
+</div>
+</section>
+
+</main>
+
+<!-- MODAL BIBLIO -->
+<div id="projectModal" class="modal">
+<div class="modal-content">
+<button onclick="closeProject()">✖</button>
+<h2>Gestion Bibliothèque</h2>
+<p>Projet complet de gestion de livres.</p>
+</div>
+</div>
+
+<!-- MODAL KID -->
+<div id="kidModal" class="modal">
+<div class="modal-content">
+<button onclick="closeKidProject()">✖</button>
+
+<h2>🎨 KidActivities</h2>
+
+<iframe src="https://www.youtube.com/embed/xHq7iD3HRmc"
+style="width:100%;height:300px;"></iframe>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
